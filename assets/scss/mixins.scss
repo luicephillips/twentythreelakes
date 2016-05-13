@@ -1,0 +1,32 @@
+/* Transition effect */ 
+
+@mixin transition-effect {
+    -webkit-transition: ease 0.3s all;
+    -moz-transition: ease 0.3s all;
+    -ms-transition: ease 0.3s all;
+    transition: ease 0.3s all;
+}
+
+/* Margin */
+
+@mixin margin($top, $right, $bottom, $left) {
+     margin: $top $right $bottom $left;
+}
+
+/* Transform Rotate */
+
+@mixin rotate180 {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+/* Transform Translate */
+
+@mixin translareY {
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
