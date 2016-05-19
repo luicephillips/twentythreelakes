@@ -1,0 +1,195 @@
+@CHARSET "UTF-8";
+h1{color:#fff; margin-top:0;}
+.sbHolder{
+	background-color: #fff;
+	border: solid 1px #dfe0e1;
+	font-size: 12px;
+	font-weight: normal;
+	height: 45px;
+	position: relative;
+	width: 200px;
+    margin-bottom: 29px;
+}
+.sbHolder:focus .sbSelector{
+	
+}
+.sbSelector > a{
+	color:#888a8d;
+	text-decoration:none;
+	}
+.sbSelector{
+	display: block;
+	height: 45px;
+	left: 0;
+	line-height: 45px;
+	outline: none;
+	overflow: hidden;
+	position: absolute;
+	text-indent: 10px;
+	top: 0;
+	width: 100%;
+	cursor:pointer;
+	color:#888a8d;
+    font-size: 16px;
+}
+/*.sbSelector:link, .sbSelector:visited, .sbSelector:hover{
+	color: #EBB52D;
+	outline: none;
+	text-decoration: none;
+}*/
+.sbToggle{
+	background: url(../images/icon/select-arrow.png) no-repeat;
+	display: block;
+	height: 8px;
+	outline: none;
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	width: 14px;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.sbHolderDisabled{
+	background-color: #3C3C3C;
+	border: solid 1px #515151;
+}
+.sbHolderDisabled .sbHolder{
+	
+}
+.sbHolderDisabled .sbToggle{
+	
+}
+.sbOptions{
+	background-color: #fff;
+	border: solid 1px #dfe0e1;
+	list-style: none;
+	left: -1px;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	/*top: 30px; now with js controlled*/
+	width: 200px;
+	z-index: 1;
+	overflow-y: auto;
+	top:45px !important;
+}
+.sbOptions li{
+	padding: 0px 0px;
+}
+
+.sbOptions li img{
+	display:inline-block;
+	float:left;
+padding-top:7px;
+padding-left:3px;
+	
+	
+	}
+
+
+.sbOptions li a:first-child{padding-left:10px;}
+
+.sbOptions a{
+	border-bottom: dotted 1px #515151;
+	display: block;
+	outline: none;
+	padding: 10px 0 10px 30px;
+}
+.sbOptions a:link, .sbOptions a:visited{
+	color: #888a8d;
+	text-decoration: none;
+	-webkit-transition:all 0.2s ease-in-out;
+    -moz-transition:all 0.2s ease-in-out;
+    -ms-transition:all 0.2s ease-in-out;
+    transition:all 0.2s ease-in-out;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 13px;
+}
+.sbOptions a:hover,
+.sbOptions a:focus,
+.sbOptions a.sbFocus{
+	color: #fff;
+	background:#76b7b7;
+}
+.sbOptions li.last a{
+	border-bottom: none;
+}
+.sbOptions .sbDisabled{
+	border-bottom: dotted 1px #515151;
+	color: #999;
+	display: block;
+	padding: 7px 0 7px 3px;
+}
+.sbOptions .sbGroup{
+	border-bottom: dotted 1px #515151;
+	color: #EBB52D;
+	display: block;
+	font-weight: bold;
+	padding: 7px 0 7px 3px;
+}
+.sbOptions .sbSub{
+	padding-left: 17px;
+}
+
+
+
+/* custom css checkbox */
+
+input[type=checkbox].css-checkbox {
+position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+padding-left:32px;
+height:21px; 
+display:inline-block;
+line-height:21px;
+background-repeat:no-repeat;
+background-position: 0 0;
+font-size:16px;
+vertical-align:middle;
+cursor:pointer;
+position: absolute;
+margin-top: 8px;
+margin-left: 2px;
+
+}
+.checkbox-custom p {
+    float: left;
+    width: 100%;
+    padding-left: 35px;
+    font-size: 16px !important;
+    padding-bottom: 29px;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+background-position: 0 -21px;
+}
+label.css-label {
+background-image:url(../images/icon/checkbox.png);
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.checkbox-custom {
+    width: 100%;
+    float: left;
+}
+
+
+@media (max-width: 767px) { 
+    
+.checkbox-custom p {
+    font-size: 28px !important;
+}
+input[type=checkbox].css-checkbox + label.css-label {
+    margin-top: 11px;
+}
+
+}
+

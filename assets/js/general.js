@@ -1,61 +1,349 @@
 // JavaScript Document
 var $ = jQuery.noConflict();
 
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
     //$('input,textarea').placeholder();
     $('.enumenu_ul').responsiveMenu({
         'menuIcon_text': '',
-        onMenuopen: function() {}
+        onMenuopen: function () {}
+    });
+
+    /* Equal Height Function */
+    $('.middle-content-block').each(function () {
+        var highestBox = 0;
+        $('.column-6', this).each(function () {
+
+            if ($(this).height() > highestBox)
+                highestBox = $(this).height();
+        });
+
+        $('.column-6', this).height(highestBox);
+    });
+
+    /* Accordian js */
+    //$("#top-accordian").accordion({ firstactive:false });
+    $("#top-accordian .accordion-title").bind("click", function (event) {
+        event.preventDefault();
+        if (!$(this).next().is(':visible')) {
+            $(this).closest("li").siblings().find(".accordion-title").removeClass("active");
+            $(this).closest("li").siblings().find(".accordion-content").slideUp();
+            $(this).next().slideDown();
+            $(this).addClass('active');
+        } else {
+            $(this).next().find(".accordion-title.active").next().slideUp();
+            $(this).next().find(".accordion-title.active").removeClass("active");
+            $(this).next().slideUp();
+            $(this).removeClass('active');
+        }
+    });
+
+    /* Validation js */
+    $("#login-form").validate({
+        onfocusout: false,
+        onkeyup: false,
+        ignore: [],
+        rules: {
+            fullname: {
+                required: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            phone: {
+                required: true,
+            },
+            message: {
+                required: true,
+            }
+        },
+        errorClass: 'error',
+        validClass: 'valid',
+        errorElement: 'span',
+        errorContainer: "#messageBox1",
+        errorLabelContainer: "#messageBox1 .errorlabel",
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass(errorClass).removeClass(validClass);
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass(errorClass).addClass(validClass);
+        },
+        messages: {
+            fullname: {
+                required: "full name",
+            },
+            email: {
+                required: "email",
+                email: "a valid email address"
+            },
+            phone: {
+                required: "phone",
+            },
+            message: {
+                required: "message",
+            }
+        },
+        errorPlacement: function (error, element) {
+            //error.insertAfter(element);
+        },
+        invalidHandler: function (event, validator) {
+            var errors = validator.numberOfInvalids();
+            if (errors) {
+                $("#messageBox1").fadeIn();
+                setTimeout(function () {
+                    var errorLen_ = $(".errorlabel > span").length;
+                    if (errorLen_ > 1) {
+                        var lastText_ = " and " + $(".errorlabel > span").eq(errorLen_ - 1).text();
+                        $(".errorlabel > span").eq(errorLen_ - 1).text(lastText_);
+                        $(".errorlabel > span").each(function (i) {
+                            if ((errorLen_ - 1) != i && (errorLen_ - 2) != i) {
+                                var commaSpan = $("<span>", {
+                                    "class": "comma"
+                                }).html(",");
+                                commaSpan.insertAfter($(this));
+                            }
+                        })
+                    }
+                }, 201);
+            } else {
+                $("#messageBox1").hide()
+            }
+        },
+        submitHandler: function (form) {
+            $('#login-form .successmsg').fadeIn();
+            setTimeout(function () {
+                $('#login-form .successmsg').fadeOut();
+
+                $('#login-form')[0].reset();
+                $(".valid").each(function () {
+                    $(this).removeClass("valid")
+                })
+
+                var option = $(".selectbox1").find("option").eq(0);
+                $(".selectbox1").selectbox("change", option.attr('value'), option.html());
+
+            }, 3000)
+
+            return false;
+        }
+    });
+
+    $("#login-form input[type='submit']").click(function () {
+        $("#messageBox1 .errorlabel").empty();
+    })
+
+    $(".back-top-btn > a").click(function (e) {
+        e.preventDefault();
+        var isChrome = window.navigator.userAgent.indexOf("WebKit") !== -1;
+        var doc;
+        if (isChrome) {
+            doc = $('body');
+        } else {
+            doc = $('html');
+        }
+        doc.stop().animate({
+            'scrollTop': 0
+        }, 1000);
+    })
+    
+    $(".footer-right-inner .footer-block h5").click(function(){
+        if($(window).width() < 768){
+            $(this).next().stop(true).slideToggle();
+        }
     });
 
 });
 
 
+$(document).ready(function(){
+    $("header .get-load img, header .get-started-btn img").css({
+        '-webkit-transition': 'transform 0.2s ease 0.6s',
+        '-moz-transition': 'transform 0.2s ease 0.6s',
+        '-ms-transition': 'transform 0.2s ease 0.6s',
+        '-o-transition': 'transform 0.2s ease 0.6s',
+        'transition': 'transform 0.2s ease 0.6s'
+    }).addClass("transtion");
+    
+    
+});
 
-// JavaScript Document
-    var $ = jQuery.noConflict();
-    var obj;
-    var offSET;
-    var sticky_clone;
+$(window).load(function () {
+    stickyHeader();
+    
+    $("body").addClass("loaded");
+    
+    setTimeout(function () {
+        $("header .get-load img, header .get-started-btn img").css({
+            '-webkit-transition': '',
+            '-moz-transition': '',
+            '-ms-transition': '',
+            '-o-transition': '',
+            'transition': ''
+        }).removeClass("transtion");
+    }, 801);
 
-    $(document).ready(function () {
-        obj = $("#sticky");
-        sticky_clone = $("<div>", {
-            "class": "sticky-clone"
-        })
-        console.log(sticky_clone);
-        $(sticky_clone).insertBefore(obj);
-        offSET = $('.sticky-clone').offset().top + $(obj).height()
-        stickyFix();
-    });
-    $(window).scroll(function () {
-        stickyFix();
-    });
+});
+$(window).resize(function () {
+    stickyHeader();
 
-    $(window).load(function () {
-        stickyFix()
-    });
+    arrowAnimate();
+    
+    if($(window).width() >= 768){
+        $(".footer-right-inner .footer-block ul").removeAttr("style");
+    }
+});
+$(window).scroll(function () {
+    stickyHeader();
 
-    $(window).resize(function () {
-        offSET = $('.sticky-clone').offset().top + $(obj).height()
-        stickyFix();
-    });
+    arrowAnimate();
+});
 
+var flag = true;
 
-var flag=true;
-    function stickyFix() {
-        
-        if ($(window).scrollTop() > offSET && flag) {
-            sticky_clone.innerHeight(obj.outerHeight());
-            obj.addClass('fixed slideDown');
-            flag= false
-        } else if($(window).scrollTop() <= offSET && !flag) {
-            obj.removeClass('slideDown').addClass("slideUp");
-            setTimeout(function(){
-                obj.removeClass('fixed slideUp');
-                sticky_clone.innerHeight(0);
-            },400)
-            flag=true;
-        }
+function stickyHeader() {
+    /*var windowScrollTop = $(window).scrollTop();
+    if (windowScrollTop > ) {
+        $("body").addClass("stickyHeader");
+    } else {
+        $("body").removeClass("stickyHeader");
+    }*/
+
+    var obj = $(".header-part");
+    if ($(window).scrollTop() > $("header").height() && flag) {
+        $("body").addClass("stickyHeader");
+
+        obj.removeClass('slideUp').addClass('slideDown');
+        setTimeout(function () {
+            obj.removeClass("slideDown")
+        }, 400)
+        flag = false;
+
+    } else if ($(window).scrollTop() <= $("header").height() && !flag) {
+        $("body").removeClass("stickyHeader");
+
+        /*obj.removeClass('slideDown').addClass("slideup")
+        setTimeout(function () {
+            obj.removeClass("slideup")
+        }, 800)*/
+        flag = true;
+    }
+}
+
+function arrowAnimate() {
+    var scroll = $(window).scrollTop();
+    var objOffset = $(".get-started-btn").offset().top;
+    if (scroll < objOffset) {
+        var scalVal = 1 - scroll / objOffset;
+        $(".get-started-btn  img").css({
+            '-webkit-transform': 'scale(' + scalVal + ')',
+            '-moz-transform': 'scale(' + scalVal + ')',
+            '-ms-transform': 'scale(' + scalVal + ')',
+            '-o-transform': 'scale(' + scalVal + ')',
+            'transform': 'scale(' + scalVal + ')'
+        });
     }
 
+    var obj2Offset = $(".get-load").offset().top;
+    if (scroll < obj2Offset) {
+        var scalVal = 1 - scroll / obj2Offset;
+        $(".get-load  img").css({
+            '-webkit-transform': 'scale(' + scalVal + ')',
+            '-moz-transform': 'scale(' + scalVal + ')',
+            '-ms-transform': 'scale(' + scalVal + ')',
+            '-o-transform': 'scale(' + scalVal + ')',
+            'transform': 'scale(' + scalVal + ')'
+        });
+    }
+}
+/* select box js */
+$(document).ready(function () {
+    $(".selectbox1").selectbox();
+});
+
+
+
+
+;
+(function ($) {
+    $.fn.parallaxx = function (options) {
+        var obj = this;
+        var destroy_;
+        var defaults = {
+            onParallaxBind: function () {},
+            onParallaxDestroy: function () {},
+            speed: 5
+        }
+        var settings = $.extend(true, {}, defaults, options);
+        var p = [];
+
+        /*======= Get all baground position of all parallax div  and set into multidimantional arraty ====*/
+        var parallax = function () {
+            obj.each(function () {
+                var $this = $(this);
+                var windowHeight = $(window).height();
+                var objOffset = $this.offset().top;
+                var objHeight = $this.height();
+                var scroll = $(window).scrollTop();
+                var result = (scroll - objOffset) / 2;
+                if (scroll < objOffset) {
+                    if ($this.hasClass("left")) {
+                        $this.css({
+                            "background-position": result + "px 0"
+                        });
+                    } else if ($this.hasClass("right")) {
+                        $this.css({
+                            "background-position": -(result + 500) + "px 0"
+                        });
+                    } else if ($this.hasClass("up")) {
+                        $this.css({
+                            "background-position": "0 " + result + "px"
+                        });
+                    }
+                    //var gray = Math.abs(result/2);
+
+                    //var gray_ = (((scroll - (objOffset + objHeight))/(objOffset + objHeight)) * 0.7)+0.7;
+                    if (scroll > (objOffset - (windowHeight/3))) {
+                        //var gray_ = (((scroll - (objOffset)) / (objOffset)) * 0.7) + 0.7;
+                        var gray_ = (((scroll - (objOffset + windowHeight)) / (objOffset + windowHeight)) * 0.7) + 0.7;
+                        $this.find(".overlay-bg").css('background-color', 'rgba(0,0,0,' + gray_ + ')');
+                        //$this.css({"filter":"grayscale("+(100 - gray)+"%)","-webkit-filter":"grayscale("+(100 - gray)+"%)"})
+                    }else{
+                        $this.find(".overlay-bg").css('background-color', 'rgba(0,0,0,0)');
+                    }
+                } else {
+                    result = 0;
+                    if ($this.hasClass("left")) {
+                        $this.css({
+                            "background-position": result + "px 0"
+                        });
+                    } else if ($this.hasClass("right")) {
+                        $this.css({
+                            "background-position": -(result + 500) + "px 0"
+                        });
+                    } else if ($this.hasClass("up")) {
+                        $this.css({
+                            "background-position": "0 " + result + "px"
+                        });
+                    }
+                    $this.find(".overlay-bg").css('background-color', 'rgba(0,0,0,0.7)');
+                    //$this.css({"filter":"grayscale(100%)","-webkit-filter":"grayscale(100%)"})
+                }
+            })
+        }
+        var init = function () {
+            parallax()
+            $(window).bind("scroll", parallax)
+            var image = "parallax bind successfuly"
+            settings.onParallaxBind(image);
+        }
+        obj.destroy = function () {
+            $(window).unbind("scroll", parallax)
+            obj.removeAttr("style")
+            settings.onParallaxDestroy(obj);
+        }
+        init()
+        return this
+    }
+
+    $(".parallax").parallaxx()
+})(jQuery);

@@ -1,0 +1,59 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.accordion-content {
+    display: none;
+}
+.accordion-content a {
+    color: #ffffff;
+}
+.accordion-title {
+    background: url(../images/plus.png) center left 19px no-repeat !important;
+    border-top: 1px solid #dfe0e1;
+    list-style: outside none none;
+    display: block;
+    color: #de5841;
+    padding: 16px 15px 18px 41px;
+    font-size: 18px;
+    cursor: pointer;
+    -webkit-transition: all 0.5s ease-out 0s;
+    -moz-transition: all 0.5s ease-out 0s;
+    -o-transition: all 0.5s ease-out 0s;
+    transition: all 0.5s ease-out 0s;
+}
+.accordion-title:hover {
+    color: #76b7b7;
+}
+.accordion-title.active {
+    background: url(../images/minus.png) 21px 42px no-repeat !important;
+    color: #76b7b7;
+    padding-top: 30px;
+}
+.accordion-content {
+    /*border-bottom: 1px solid #222526;*/
+    list-style: outside none none;
+    display: none;
+    color: #fff;    
+    padding: 0px 15px 10px 41px;
+}
+.accordion-title > span {
+    float: right;
+    position: relative;
+    display: none !important;
+}
+.accordion-title.active > span {
+    float: right;
+    position: relative;
+    background: #fff;
+}
+.accordion-content p {
+    color: #888a8d;
+    font-size: 18px;
+    line-height: 28px;
+    padding-bottom: 16px;
+}
+.accordion > li:last-child {
+    border-bottom: 1px solid #dfe0e1;
+}
