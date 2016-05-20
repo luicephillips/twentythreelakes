@@ -10,8 +10,8 @@ h1{color:#fff; margin-top:0;}
 	width: 200px;
     margin-bottom: 29px;
 }
-.sbHolder:focus .sbSelector{
-	
+.sbHolder:focus {
+	border: 1px solid #76B7B7;
 }
 .sbSelector > a{
 	color:#888a8d;
@@ -142,7 +142,7 @@ position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0
 }
 
 input[type=checkbox].css-checkbox + label.css-label {
-padding-left:32px;
+padding-left:21px;
 height:21px; 
 display:inline-block;
 line-height:21px;
@@ -167,6 +167,11 @@ margin-left: 2px;
 input[type=checkbox].css-checkbox:checked + label.css-label {
 background-position: 0 -21px;
 }
+
+input[type="checkbox"]:focus + label {
+  border: 1px solid #75b8b8;
+}
+
 label.css-label {
 background-image:url(../images/icon/checkbox.png);
 -webkit-touch-callout: none;
@@ -191,5 +196,13 @@ input[type=checkbox].css-checkbox + label.css-label {
     margin-top: 11px;
 }
 
+}
+
+@media (max-width: 680px) { 
+    
+.checkbox-custom p {
+    font-size: 18px !important;
+}
+    
 }
 

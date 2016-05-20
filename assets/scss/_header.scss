@@ -29,6 +29,12 @@ header {
                         @include pad(23px 0 21px 0);    
                     }
                     
+                    @include media(max-width 680px) {
+                        width: 33.3%;
+                        margin-right: 0;
+                        @include pad(23px 5px 21px 5px);
+                    }
+                    
                     @include media(max-width 479px) {
                         @include pad(15px 0 15px 0);  
                         width: 100%;
@@ -46,10 +52,12 @@ header {
                         
                         @include media(max-width 767px) {
                             height: 70px;
+                            right: -13.5%;
                         }
                         
                         @include media(max-width 680px) {
-                            bottom: 9px;                            
+                            bottom: 9px;
+                            right: 0;
                         }
                         
                         @include media(max-width 479px) {
@@ -67,10 +75,15 @@ header {
                     a {
                         color: $white-color;
                         text-transform: uppercase;
-                        @include transition-effect;
+                        @include transition-effect; 
+                        letter-spacing: 1.2px;                        
+                        
+                        @include media(max-width 991px) {
+                            font-size: $xs-small-text;
+                        }
                         
                         @include media(max-width 767px) {
-                                width: 211px;
+                                width: 236px;
                                 display: inline-block;
                                 margin: 0 auto;
                                 font-size: $xmedium-text;
@@ -208,8 +221,9 @@ header {
                     position: relative;
                     width: 100%;
                     float: $left;
-                    @include pad(34px 0 33px 0);
+                    @include pad(33px 0 31px 0);
                     z-index: 3;
+                    font-size: $xsmall-text;
                     
                     @include media(max-width 991px) {
                         @include pad(33px 0 33px 0);
@@ -223,7 +237,7 @@ header {
                     
                     span {
                         position: absolute;
-                        top: -4px;
+                        top: -5px;
                         left: 50%;
                         @include translareX;
                         
@@ -381,7 +395,7 @@ header {
                     width: 100%;
                     float: $left;
                     height: 100%;
-                    @include pad(34px 0 33px 0);
+                    @include pad(34px 0 33px 0);                    
                     
                     @include media(max-width 991px) {
                         @include pad(33px 0 33px 0);
@@ -572,7 +586,7 @@ header {
                 .get-started-btn {
                     
                     a {
-                        @include pad(34px 0 34px 0);
+                        @include pad(32px 0 32px 0);
                     }
                 }
             }
@@ -591,7 +605,12 @@ header {
                 .get-started-btn {
                     
                     a {
-                        @include pad(34px 0 34px 0);
+                        
+                        span {
+                            top: -6px;    
+                        }
+                        
+                        @include pad(32px 0 32px 0);
                         
                         @include media(max-width 991px) {
                            @include pad(33px 0 33px 0);

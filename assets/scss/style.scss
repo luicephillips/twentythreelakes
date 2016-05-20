@@ -69,21 +69,37 @@ h3{ font-size:20px; margin-bottom:20px}
 h4{ font-size:16px; margin-bottom:20px}
 h5{ font-size:12px; margin-bottom:20px}
 
-body {margin: 0; padding: 0; font-size:14px;color:#888a8d; overflow-x: hidden; -webkit-font-smoothing: subpixel-antialiased;
--webkit-text-stroke:1px transparent; padding-top: 70px;}
+body {margin: 0; padding: 0; font-size:14px;color:#888a8d;
+
+
+}
 /*--------sticky footer or vertical footer------------*/
-.wrapper {min-height: 100%; height: auto !important; height: 100%; margin: 0 auto; /*initialize footer height in negative for sticky footer*/}
+.wrapper {min-height: 100%; height: auto !important; height: 100%; margin: 0 auto; padding-top: 70px; overflow-x: hidden; position: relative;
+    
+@include media(max-width 680px) {
+    padding-top: 88px;
+}
+    
+@include media(max-width 479px) {
+    padding-top: 147px;
+}
+
+}
 body, html {height: 100%; font-family: $noto-sans;}
 input {
     font-size: $xsmall-text;
     color: $video-font-color;
     background: $white-color;
     border: 1px solid $chs-lng-color;
-    @include pad(14px 10px 11px 10px);
+    @include pad(12px 10px 11px 10px);
     width: 100%;
     float: $left;
     margin-bottom: 29px;
+    font-family: $noto-sans;
     @include transition-effect;
+    @include box-shadow-none;
+    @include border-radius-none;
+    -webkit-appearance: none;
 }
 input:focus {    
     border: 1px solid $drk-light-green;    
@@ -104,6 +120,9 @@ textarea {
     font-family: $noto-sans;
     resize: none;
     @include transition-effect;
+    @include box-shadow-none;
+    @include border-radius-none;
+    -webkit-appearance: none;
 }
 textarea:focus {    
     border: 1px solid $drk-light-green;    
@@ -196,6 +215,14 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     
     @include media(max-width 991px) {
        height: 654px;
+    } 
+    
+    @include media(max-width 680px) {
+       height: 424px;
+    } 
+    
+    @include media(max-width 479px) {
+       height: 424px;
     } 
     
     &:after {
@@ -304,6 +331,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                     @include pad(25px 41px 24px 40px);
                     @include margin(0, 26px, 5px, 0);
                     @include transition-effect;
+                    font-weight: $bold;
                     
                     @include media(max-width 680px) {
                         @include pad(15px 15px 14px 15px);
@@ -325,6 +353,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                 
                 @include media(max-width 1199px) {
                    bottom: 34px;
+                    right: 0;
                 } 
                 
                 @include media(max-width 767px) {
@@ -338,10 +367,37 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                     right: 15px;
                 } 
                 
+                @include media(max-width 479px) {
+                    bottom: 10px;
+                } 
+                
                 p {
                     color: $white-color;
                     font-size: $xxsmall-text;
                     padding-bottom: 0;
+                    position: relative;
+                    padding-left: 32px;
+                    width: auto;
+                    padding-right: 20px;
+                    line-height: 23px;
+                    
+                    @include media(max-width 991px) {
+                        padding-left: 42px;
+                    }
+                    
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        background: url(../images/icon/leaf-banner.png) center center no-repeat;
+                        width: 23px;
+                        height: 21px;
+                        top: -2px;
+                        
+                        @include media(max-width 991px) {
+                            left: 10px;
+                        }
+                    }
                     
                     @include media(max-width 680px) {
                         font-size: $s-small-text;
@@ -356,6 +412,11 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                         color: $gray-text-color;
                         text-decoration: underline;
                         margin-left: 5px;
+                        @include transition-effect;
+                        
+                        &:hover {
+                            color: $white-color;
+                        }
                     }
                 }
             }
@@ -372,6 +433,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     
     @include media(max-width 1199px) {
        @include pad(105px 0 109px 0);
+    }
+    
+    @include media(max-width 680px) {
+       @include pad(55px 0 39px 0);
     }
     
     .column-12 {
@@ -392,13 +457,18 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     p {
         font-size: $medium-text;
         color: $lightgray-color;
-        width: 59%;
+        width: 62%;
         display: table;
         @include margin(53px, auto, 41px, auto);
         line-height: 34px;
         
         @include media(max-width 1199px) {
             width: 90%;
+        }
+        
+        @include media(max-width 680px) {
+            line-height: 28px;
+            font-size: $small-text;
         }
     }
     
@@ -443,6 +513,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
        @include pad(70px 0 65px 0);
     }
     
+    @include media(max-width 680px) {
+       @include pad(55px 0 55px 0);
+    }
+    
     .container-block {
         height: 100%;
         
@@ -478,11 +552,15 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         color: $white-color;
         font-weight: $light;
         line-height: 52px;
-        width: 90%;    
+        width: 89%;    
         letter-spacing: -0.8px;
         
         @include media(max-width 767px) {
            margin-bottom: 24px;
+        }
+        
+        @include media(max-width 680px) {
+           width: 100%;
         }
         
         strong {
@@ -501,6 +579,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         @include pad(23px 37px 23px 33px);
         @include margin(55px, 26px, 5px, 0);
         @include transition-effect;
+        letter-spacing: 0.1px;
         
         @include media(max-width 767px) {
            @include margin(19px, 26px, 5px, 0);
@@ -525,7 +604,32 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     @include pad(109px 0 92px 0);
     text-align: center;
     
+    @include media(max-width 767px) {
+        @include pad(59px 0 42px 0);    
+    }
+    
     .column-6 {
+        position: relative;
+        
+        &:first-child {
+            
+            &:after {
+                content: "";
+                position: absolute;
+                right: 34px;
+                width: 1px;
+                height: 270px;
+                background: $video-brd;
+                
+                @include media(max-width 991px) {
+                   right: -8px;
+                }
+                
+                @include media(max-width 767px) {
+                   content: none;
+                }
+            }
+        }
         
         @include media(max-width 767px) {
             width: 100%;
@@ -554,6 +658,11 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
             @include pad(15px 22px 16px 23px);
             @include margin(15px, 26px, 5px, 0);
             @include transition-effect;
+            
+            img {
+                position: relative;
+                top: 3px;
+            }
             
             @include media(max-width 767px) {
                 @include margin(15px, 0, 5px, 0);
@@ -595,6 +704,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     
     @include media(max-width 767px) {
        @include pad(70px 0 65px 0);
+    }
+    
+    @include media(max-width 680px) {
+       @include pad(55px 0 55px 0);
     }
     
     .container-block {
@@ -658,10 +771,16 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         line-height: 30px;
         margin-top: 11px;
         display: inline-block;
+        width: 96%;
+        
+        @include media(max-width 680px) {
+           font-size: $xxxsmall-text;
+            line-height: 24px;
+        }
     }
     
     a {
-        font-size: $xsmall-text;
+        font-size: $sxsmall-text;
         color: $white-color;
         font-weight: $bold;
         text-transform: uppercase;
@@ -673,6 +792,11 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         
         @include media(max-width 767px) {
            @include margin(10px, 26px, 5px, 0);
+        }
+        
+        @include media(max-width 680px) {
+           font-size: $xs-small-text;
+            @include pad(13px 28px 13px 28px);
         }
 
         &:hover {
@@ -695,6 +819,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     @include pad(126px 0 125px 0);
     text-align: center;
     
+    @include media(max-width 680px) {
+       @include pad(56px 0 65px 0);
+    }
+    
     p {
         font-size: $xmedium-text;
         color: $video-font-color;
@@ -702,6 +830,15 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         margin-top: 4px;
         display: inline-block;
         text-align: center;
+        
+        @include media(max-width 680px) {
+           font-size: $small-text;
+            line-height: 28px;
+            
+            br {
+                display: none;
+            }
+        }
     }
     
     a {
@@ -737,7 +874,12 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     }
     
     @include media(max-width 767px) {
-       @include pad(70px 0 65px 0);
+        @include pad(70px 0 65px 0);
+        background-position: -500px 0 !important;
+    }
+    
+    @include media(max-width 680px) {
+       @include pad(55px 0 55px 0);
     }
     
     .container-block {
@@ -801,10 +943,16 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         line-height: 30px;
         margin-top: 11px;
         display: inline-block;
+        width: 96%;
+        
+        @include media(max-width 680px) {
+           font-size: $xxxsmall-text;
+            line-height: 24px;
+        }
     }
     
     a {
-        font-size: $xsmall-text;
+        font-size: $sxsmall-text;
         color: $white-color;
         font-weight: $bold;
         text-transform: uppercase;
@@ -816,6 +964,11 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         
         @include media(max-width 767px) {
            @include margin(10px, 26px, 5px, 0);
+        }
+        
+        @include media(max-width 680px) {
+           font-size: $xs-small-text;
+            @include pad(13px 28px 13px 28px);
         }
 
         &:hover {
@@ -838,6 +991,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     @include pad(126px 0 123px 0);
     text-align: center;
     background: $prtner-logo-bg;
+    
+    @include media(max-width 680px) {
+       @include pad(56px 0 65px 0);
+    }
     
     ul {
         
@@ -881,6 +1038,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     
     @include media(max-width 767px) {
        @include pad(70px 0 65px 0);
+    }
+    
+    @include media(max-width 680px) {
+       @include pad(55px 0 55px 0);
     }
     
     .container-block {
@@ -931,10 +1092,15 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         line-height: 30px;
         margin-top: 11px;
         display: inline-block;
+        
+        @include media(max-width 680px) {
+           font-size: $xxxsmall-text;
+            line-height: 24px;
+        }
     }
     
     a {
-        font-size: $xsmall-text;
+        font-size: $sxsmall-text;
         color: $white-color;
         font-weight: $bold;
         text-transform: uppercase;
@@ -946,6 +1112,11 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         
         @include media(max-width 767px) {
            @include margin(18px, 26px, 5px, 0);
+        }
+        
+        @include media(max-width 680px) {
+           font-size: $xs-small-text;
+            @include pad(13px 28px 13px 28px);
         }
 
         &:hover {
@@ -970,6 +1141,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     text-align: center;
     @include pad(105px 0 134px 0);
     overflow: hidden;
+    
+    @include media(max-width 680px) {
+       @include pad(55px 0 34px 0);
+    }
     
     .column-4 {
         
@@ -1057,6 +1232,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                 border: 1px solid $banner-brdr-color;
                 @include margin(12px, 26px, 5px, 0);
                 @include transition-effect;
+                font-weight: $bold;
 
                 &:hover {
                     color: $light-red-color;
@@ -1078,8 +1254,24 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     height: 648px;
     position: relative;
     overflow: hidden;
-    background: url(../images/bg-img/family-incp.png) center center no-repeat;
+    background: url(../images/bg-img/family-incp-contact.png) center center no-repeat;
     background-size: cover;
+    
+    @include media(max-width 767px) {
+        background-position: center center !important;
+    }
+    
+    @include media(max-width 680px) {
+        height: 424px;
+        background-position: center center !important;
+        background-size: cover;
+    }
+    
+    .banner-logo {
+        position: absolute;
+        bottom: 82px;
+        left: 77px;
+    }
     
     .container-block {
         position: relative;
@@ -1162,11 +1354,15 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                     
                     span {
                         font-size: $xxxsmall-text;
-                        margin-left: 9px;
+                        margin-left: 1px;
                         opacity: 0.5;
                         position: relative;
                         bottom: 1px;
                         margin-right: 3px;
+                        
+                        @include media(max-width 767px) {
+                            margin-left: 7px;
+                        }
                     }
                 }
             }
@@ -1186,7 +1382,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
      }
     
     @include media(max-width 680px) {
-        @include pad(31px 0 174px 0);
+        @include pad(31px 0 64px 0);
      }
     
     .column-7 {
@@ -1235,6 +1431,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                 font-size: $xl-large-text;
                 font-weight: $normal;
                 line-height: 40px;
+                margin-bottom: 18px;
              }
         }
         
@@ -1249,8 +1446,8 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
              }
             
             @include media(max-width 680px) {
-                line-height: 32px;
-                font-size: $xmedium-text;
+                line-height: 28px;
+                font-size: $small-text;                
              }
         }
         
@@ -1266,6 +1463,20 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
             .felment-main-wrap {
                 width: 85.5%;
                 float: $left;
+                position: relative;
+                
+                .column-12 {
+                    
+                    .column-6 {
+                        
+                        &:first-child {
+                            
+                            input {
+                                width: 95%;
+                            }
+                        }
+                    }
+                }
                 
                 @include media(max-width 991px) {
                     width: 100%;
@@ -1296,6 +1507,14 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                     @include pad(20px 33px 18px 57px);
                     text-transform: uppercase;    
                     margin-bottom: 0;
+                    
+                    &:hover {
+                        background: $red-color;
+                    }
+                    
+                    &:focus {
+                        background: $red-color;
+                    }
                 }
             }
         }
@@ -1348,6 +1567,15 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                             
                             @include media(max-width 1199px) {
                                 @include pad(5px 5px 6px 5px);
+                             }
+                            
+                            @include media(max-width 767px) {
+                                width: 114px;
+                             }
+                            
+                            @include media(max-width 680px) {
+                                @include pad(13px 5px 12px 5px);
+                                width: 100px;
                              }
                             
                             span {
@@ -1782,7 +2010,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
 
             &:before {
                 content: "";
-                width: 35%;
+                width: 33%;
                 left: 22px;
                 position: absolute;
                 top: 50%;
@@ -1792,7 +2020,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
 
             &:after {
                 content: "";
-                width: 35%;
+                width: 37%;
                 right: 14px;
                 position: absolute;
                 top: 50%;
@@ -1954,7 +2182,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
 }
 
 .about_banner {
-    background: url(../images/bg-img/call-action2.png) center center no-repeat;
+    background: url(../images/bg-img/call-action2-inner.png) center center no-repeat;
     background-size: cover;
 }
 
@@ -1988,9 +2216,9 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         
         input {
             margin-bottom: 0;
-            @include pad(16px 10px 12px 10px);
+            @include pad(14px 58px 10px 10px);
             background: $search-bg;
-            border: 1px solid $search-bg;
+            border: 1px solid $search-bg;            
         }
         
         input[type="submit"] {
@@ -2001,6 +2229,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
             position: absolute;
             right: 0;
             border: 0;
+            padding-right: 0;
         }
     }
 }
@@ -2018,7 +2247,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     }
     
     ul {
-        padding-left: 21px;
+        padding-left: 16px;
         font-size: 12px;
         margin-top: 23px;
         color: $red-color;
@@ -2036,6 +2265,9 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                     width: 100%;
                     display: inline-block;
                     word-wrap: break-word;
+                    vertical-align: top;
+                    position: relative;
+                    bottom: 3px;
                 }
                 
                 &:hover {
@@ -2074,6 +2306,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                 display: inline-block;
             }
             
+            &:hover {
+                opacity: 0.7;
+            }
+            
             .rss-icon {
                 background-position: 0 0;
             }
@@ -2107,6 +2343,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     
     ul {
         width: 106%;
+        
+        @include media(max-width 1199px) {
+            width: 100%;            
+        }
         
         
         li {
@@ -2227,6 +2467,15 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         padding-bottom: 0;
         line-height: 30px;
         width: 105%;
+        
+        @include media(max-width 1199px) {
+            width: 100%;
+        }
+        
+        @include media(max-width 767px) {
+            margin-left: 0;
+            padding-right: 15px;
+        }
     }
     
     b {
@@ -3040,28 +3289,119 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     @include media(max-width 767px) {
         margin-bottom: 77px;
     }
+    
+    .incp-content {
+        
+        p {
+            
+            &:nth-child(3) {
+                display: none;
+            }
+        }
+    }
 }
 
 h2 {
     
     @include media(max-width 680px) {
-        font-size: $xl-large-text !important;
-        line-height: 38px !important;
+        font-size: $medium-text !important;
+        line-height: 32px !important;
     }
 }
 #messageBox1 {
     background: $light-red-color;
     color: $white-color;
-    @include pad(11px 5px 11px 5px);
+    @include pad(21px 5px 20px 5px);
     width: 100%;
     float: $left;
     text-align: center;
     margin-top: 30px;
+    position: absolute;
+    bottom: -90px;
     
     span {
         font-size: $xxxsmall-text;
+        
+        .error {
+            
+            font-weight: $bold;
+            
+            small {
+                
+                font-weight: $normal;
+            }
+        }
     }
+}
+.successmsg {
+    background: $drk-light-green;
+    color: $white-color;
+    @include pad(21px 5px 20px 5px);
+    width: 100%;
+    float: $left;
+    text-align: center;
+    margin-top: 30px;
+    position: absolute;
+    bottom: -90px;
 }
 .parallax.up {
     background-attachment: fixed;
 }
+
+.about_banner {
+    
+    .container-block {
+        
+        .inner-page-content {
+            
+            ul {
+                
+                li {
+                    
+                    span {                        
+                        margin-left: 6px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ios{
+    
+    header {
+        
+        #header-main {
+            
+            .header-part {
+                
+                .get-load {
+                    
+                    a {
+                        
+                        @include media(max-width 767px) {
+                            @include pad(43px 0 64px 0);
+                        }
+                        
+                        @include media(max-width 680px) {
+                            @include pad(32px 0 48px 0);
+                        }
+                        
+                        @include media(max-width 480px) {
+                            @include pad(27px 0 48px 0);
+                        }
+                        
+                        @include media(max-width 400px) {
+                            @include pad(27px 0 47px 0);
+                        }
+                        
+                        span {
+                            top: -1px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

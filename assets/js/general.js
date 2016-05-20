@@ -26,13 +26,25 @@ jQuery(document).ready(function () {
         event.preventDefault();
         if (!$(this).next().is(':visible')) {
             $(this).closest("li").siblings().find(".accordion-title").removeClass("active");
-            $(this).closest("li").siblings().find(".accordion-content").slideUp();
-            $(this).next().slideDown();
+            //$(this).closest("li").siblings().find(".accordion-content").slideUp();
+            $(this).closest("li").siblings().find(".accordion-content").velocity("slideUp", {
+                duration: 400
+            });
+            //$(this).next().slideDown();
+            $(this).next().velocity("slideDown", {
+                duration: 400
+            });
             $(this).addClass('active');
         } else {
-            $(this).next().find(".accordion-title.active").next().slideUp();
+            //$(this).next().find(".accordion-title.active").next().slideUp();
+            $(this).next().find(".accordion-title.active").next().velocity("slideUp", {
+                duration: 400
+            });
             $(this).next().find(".accordion-title.active").removeClass("active");
-            $(this).next().slideUp();
+            //$(this).next().slideUp();
+            $(this).next().velocity("slideUp", {
+                duration: 400
+            });
             $(this).removeClass('active');
         }
     });
@@ -89,20 +101,26 @@ jQuery(document).ready(function () {
         invalidHandler: function (event, validator) {
             var errors = validator.numberOfInvalids();
             if (errors) {
-                $("#messageBox1").fadeIn();
+                //$("#messageBox1").fadeIn();
+                $("#messageBox1").velocity("fadeIn", {
+                    duration: 400
+                })
                 setTimeout(function () {
                     var errorLen_ = $(".errorlabel > span").length;
                     if (errorLen_ > 1) {
-                        var lastText_ = " and " + $(".errorlabel > span").eq(errorLen_ - 1).text();
-                        $(".errorlabel > span").eq(errorLen_ - 1).text(lastText_);
+                        var lastText_ = " <small>and </small>" + $(".errorlabel > span").eq(errorLen_ - 1).text() + ".";
+                        $(".errorlabel > span").eq(errorLen_ - 1).html(lastText_);
                         $(".errorlabel > span").each(function (i) {
                             if ((errorLen_ - 1) != i && (errorLen_ - 2) != i) {
                                 var commaSpan = $("<span>", {
                                     "class": "comma"
-                                }).html(",");
+                                }).html(", ");
                                 commaSpan.insertAfter($(this));
                             }
                         })
+                    }else{
+                        var lastText_ = $(".errorlabel > span").eq(errorLen_ - 1).text() + ".";
+                        $(".errorlabel > span").eq(errorLen_ - 1).html(lastText_);
                     }
                 }, 201);
             } else {
@@ -110,14 +128,20 @@ jQuery(document).ready(function () {
             }
         },
         submitHandler: function (form) {
-            $('#login-form .successmsg').fadeIn();
+            //$('#login-form .successmsg').fadeIn();
+            $('#login-form .successmsg').velocity("fadeIn", {
+                duration: 400
+            });
+
             setTimeout(function () {
-                $('#login-form .successmsg').fadeOut();
+                //$('#login-form .successmsg').fadeOut();
+                $('#login-form .successmsg').velocity("fadeOut", {
+                    duration: 400
+                });
+
 
                 $('#login-form')[0].reset();
-                $(".valid").each(function () {
-                    $(this).removeClass("valid")
-                })
+                $("#login-form .valid").removeClass("valid");
 
                 var option = $(".selectbox1").find("option").eq(0);
                 $(".selectbox1").selectbox("change", option.attr('value'), option.html());
@@ -134,7 +158,7 @@ jQuery(document).ready(function () {
 
     $(".back-top-btn > a").click(function (e) {
         e.preventDefault();
-        var isChrome = window.navigator.userAgent.indexOf("WebKit") !== -1;
+        /*var isChrome = window.navigator.userAgent.indexOf("WebKit") !== -1;
         var doc;
         if (isChrome) {
             doc = $('body');
@@ -143,19 +167,27 @@ jQuery(document).ready(function () {
         }
         doc.stop().animate({
             'scrollTop': 0
-        }, 1000);
+        }, 1000);*/
+        $('html, body').velocity("scroll", {
+            duration: 800,
+        });
     })
-    
-    $(".footer-right-inner .footer-block h5").click(function(){
-        if($(window).width() < 768){
-            $(this).next().stop(true).slideToggle();
+
+    $(".footer-right-inner .footer-block h5").on("click", function () {
+        if (window.innerWidth < 768) {
+            //$(this).next().stop(true).slideToggle();
+            if ($(this).next().is(":visible")) {
+                $(this).next().velocity("slideUp", {
+                    duration: 400
+                });
+            } else {
+                $(this).next().velocity("slideDown", {
+                    duration: 400
+                });
+            }
         }
     });
-
-});
-
-
-$(document).ready(function(){
+    
     $("header .get-load img, header .get-started-btn img").css({
         '-webkit-transition': 'transform 0.2s ease 0.6s',
         '-moz-transition': 'transform 0.2s ease 0.6s',
@@ -164,14 +196,18 @@ $(document).ready(function(){
         'transition': 'transform 0.2s ease 0.6s'
     }).addClass("transtion");
     
-    
+    if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+        $("#bgvid").attr("controls",true);    
+    }
+
+    $(".selectbox1").selectbox();
 });
 
 $(window).load(function () {
     stickyHeader();
-    
+
     $("body").addClass("loaded");
-    
+
     setTimeout(function () {
         $("header .get-load img, header .get-started-btn img").css({
             '-webkit-transition': '',
@@ -187,8 +223,8 @@ $(window).resize(function () {
     stickyHeader();
 
     arrowAnimate();
-    
-    if($(window).width() >= 768){
+
+    if (window.innerWidth >= 768) {
         $(".footer-right-inner .footer-block ul").removeAttr("style");
     }
 });
@@ -234,31 +270,34 @@ function arrowAnimate() {
     var objOffset = $(".get-started-btn").offset().top;
     if (scroll < objOffset) {
         var scalVal = 1 - scroll / objOffset;
-        $(".get-started-btn  img").css({
+        /*$(".get-started-btn  img").css({
             '-webkit-transform': 'scale(' + scalVal + ')',
             '-moz-transform': 'scale(' + scalVal + ')',
             '-ms-transform': 'scale(' + scalVal + ')',
             '-o-transform': 'scale(' + scalVal + ')',
             'transform': 'scale(' + scalVal + ')'
-        });
+        });*/
+        $(".get-started-btn  img").velocity({
+            scale: scalVal
+        },0);
     }
 
     var obj2Offset = $(".get-load").offset().top;
     if (scroll < obj2Offset) {
         var scalVal = 1 - scroll / obj2Offset;
-        $(".get-load  img").css({
+        /*$(".get-load  img").css({
             '-webkit-transform': 'scale(' + scalVal + ')',
             '-moz-transform': 'scale(' + scalVal + ')',
             '-ms-transform': 'scale(' + scalVal + ')',
             '-o-transform': 'scale(' + scalVal + ')',
             'transform': 'scale(' + scalVal + ')'
-        });
+        });*/
+        $(".get-load  img").velocity({
+            scale: scalVal
+        },0);
     }
 }
-/* select box js */
-$(document).ready(function () {
-    $(".selectbox1").selectbox();
-});
+
 
 
 
@@ -290,24 +329,38 @@ $(document).ready(function () {
                         $this.css({
                             "background-position": result + "px 0"
                         });
+                        /*$this.velocity({
+                            backgroundPosition: result + "px 0"
+                        }, 0);*/
                     } else if ($this.hasClass("right")) {
                         $this.css({
                             "background-position": -(result + 500) + "px 0"
                         });
+                        /*$this.velocity({
+                            backgroundPosition: result + "px 0"
+                        }, 0);*/
                     } else if ($this.hasClass("up")) {
                         $this.css({
                             "background-position": "0 " + result + "px"
                         });
+                        /*$this.velocity({
+                            backgroundPosition: "0 " + result + "px"
+                        }, 0);*/
                     }
                     //var gray = Math.abs(result/2);
 
                     //var gray_ = (((scroll - (objOffset + objHeight))/(objOffset + objHeight)) * 0.7)+0.7;
-                    if (scroll > (objOffset - (windowHeight/3))) {
+                    if (scroll > (objOffset - (windowHeight / 3))) {
+                        //$this.css({"filter":"grayscale("+(100 - gray)+"%)","-webkit-filter":"grayscale("+(100 - gray)+"%)"})
+                        
                         //var gray_ = (((scroll - (objOffset)) / (objOffset)) * 0.7) + 0.7;
                         var gray_ = (((scroll - (objOffset + windowHeight)) / (objOffset + windowHeight)) * 0.7) + 0.7;
                         $this.find(".overlay-bg").css('background-color', 'rgba(0,0,0,' + gray_ + ')');
-                        //$this.css({"filter":"grayscale("+(100 - gray)+"%)","-webkit-filter":"grayscale("+(100 - gray)+"%)"})
-                    }else{
+                        
+                        /*$this.find(".overlay-bg").velocity({
+                            backgroundColor: 'rgba(0,0,0,' + gray_ + ')'
+                        }, 0)*/
+                    } else {
                         $this.find(".overlay-bg").css('background-color', 'rgba(0,0,0,0)');
                     }
                 } else {
@@ -346,4 +399,8 @@ $(document).ready(function () {
     }
 
     $(".parallax").parallaxx()
+    
+    
+    
+    
 })(jQuery);

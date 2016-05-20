@@ -32,6 +32,7 @@
 .menu-icon.active span:nth-child(1) {
     transform: rotate(45deg) translateY(8px) translateX(12px);
     -webkit-transform: rotate(45deg) translateY(8px) translateX(12px);
+    background: #d35b49;
 }
 .menu-icon.hover:not(.active) span:nth-child(1) {
     transform: rotate(90deg) translateX(16px);
@@ -43,6 +44,7 @@
 .menu-icon.active span:nth-child(3) {
     transform: rotate(-45deg) translateY(-10px) translateX(14px);
     -webkit-transform: rotate(-45deg) translateY(-10px) translateX(14px);
+    background: #d35b49;
 }
 .menu-icon.hover:not(.active) span:nth-child(3) {
     transform: rotate(-90deg) translateX(15px);
@@ -59,7 +61,7 @@
 .enumenu_ul > li {
     display: inline-block;
     vertical-align: top;
-    padding: 31px 0;
+    padding: 32px 0;
     position: relative
 }
 li.dropdown > a, li.mega-menu-list > a{
@@ -69,9 +71,9 @@ li.dropdown > a, li.mega-menu-list > a{
 /*    padding-right: 0;*/
 }
 .enumenu_ul li a {
-    font-size: 18px;
+    font-size: 16px;
     color: #7c7e80;
-    padding: 31px 24px;
+    padding: 32px 24px;
 }
 .enumenu_ul > li > a:hover,
 .enumenu_ul > li.active > a {
@@ -121,6 +123,8 @@ li.dropdown > a, li.mega-menu-list > a{
     color: #888a8d;
     font-size: 16px;
     text-align: left;
+    display: table;
+    width: auto;
 }
 .enumenu_ul.desk ul li:hover > a {
     background: transparent;
@@ -324,6 +328,8 @@ li.dropdown > a, li.mega-menu-list > a{
         margin-top: 0;
         background: #fff;
         border-top: 1px solid #cdced0;
+        overflow: auto;
+        height: 620px;
     }
     .mega-menu-list {
         position: relative !important;
@@ -588,84 +594,9 @@ transform: translateY(0%);
 }
 }
 
-/* default state */
-/*
-header #header-main .header-part .get-started-btn{
-    background-color: #76b7b7;
+@media screen and ( max-height: 480px ){
+.enumenu_ul {
+    height: 254px;
 }
-*/
+}
 
-/*
-header #header-main .top-bar{
-    opacity: 0;
-}
-*/
-/*
-.get-started-btn img,
-header #header-main .header-part .get-load a span img{
-    transform-origin: 0 0;
-    transform: scale(0);
-}
-*/
-
-/* css */
-/*
-header #header-main .header-part .get-started-btn:after,
-.get-load:after{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    content: "";
-    background-color: #d35b49;
-    display: block;
-    height: 0;
-}
-*/
-/*
-header #header-main .header-part .get-started-btn a span,
-header #header-main .header-part .get-load a span{
-    z-index: 9;
-}
-*/
-/*
-header #header-main .header-part .get-started-btn a{
-    z-index: 1;
-}
-*/
-
-
-/* transition duration */
-/*
-header #header-main .header-part .get-started-btn:after,
-.get-load:after{
-    transition: height 0.4s ease 0s;
-}
-*/
-/*
-header #header-main .top-bar{
-    transition: opacity 0.2s ease 0.4s
-}
-*/
-
-
-
-
-
-/* final stage of transition */
-/*
-.loaded header #header-main .header-part .get-started-btn:after,
-.loaded .get-load:after{
-    height: 100%;
-}
-*/
-/*
-.loaded header #header-main .top-bar{
-    opacity: 1;
-}
-*/
-/*
-.loaded .get-started-btn img,
-.loaded header #header-main .header-part .get-load a span img{
-    transform: scale(1);
-}*/
