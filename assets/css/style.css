@@ -370,7 +370,7 @@ header {
   left: 0;
   right: 0;
   top: 0;
-  z-index: 9; }
+  z-index: 99; }
   header #header-main .top-bar {
     width: 100%;
     float: left;
@@ -1303,6 +1303,7 @@ textarea.texareabox:-ms-input-placeholder {
     right: 0;
     top: 0;
     bottom: 0;
+    z-index: 2;
     background: rgba(70, 70, 70, 0.3); }
   .banner-main-block video {
     position: absolute;
@@ -1310,14 +1311,17 @@ textarea.texareabox:-ms-input-placeholder {
     left: 0;
     min-width: 100%;
     min-height: 100%;
-    z-index: -100;
+    z-index: 1;
     background: url(../images/banner/banner-video-poster.jpg) no-repeat;
     background-size: cover;
     transition: 1s opacity; }
+    @media screen and (max-width: 767px) {
+      .banner-main-block video {
+        background: url(../images/banner/small-banner.jpg) no-repeat; } }
   .banner-main-block .banner-content-block {
     height: 100%;
     position: relative;
-    z-index: 1; }
+    z-index: 9; }
     .banner-main-block .banner-content-block .container-block {
       height: 100%;
       position: relative; }
@@ -1502,9 +1506,19 @@ textarea.texareabox:-ms-input-placeholder {
         line-height: 28px;
         font-size: 18px; } }
   .info-section .info-sec-block {
-    width: 100%;
     float: left;
-    margin: 10px 0 10px 0; }
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+    .info-section .info-sec-block:last-child {
+      margin-right: 0; }
+    @media screen and (max-width: 767px) {
+      .info-section .info-sec-block {
+        width: 100%;
+        margin-right: 0; } }
     .info-section .info-sec-block img {
       width: 100%;
       display: block; }
@@ -1521,19 +1535,22 @@ textarea.texareabox:-ms-input-placeholder {
   width: 100%;
   float: left;
   position: relative;
-  background: url(../images/bg-img/family-incp.png) center center no-repeat;
+  background: url(../images/bg-img/family-incp.jpg) center center no-repeat;
   background-size: cover;
   padding: 126px 0 114px 0;
   overflow: hidden; }
   @media screen and (max-width: 1024px) {
     .family-incp-section {
-      background-position: -940px 0 !important; } }
+      background-position: -940px 0 !important;
+      padding: 86px 0 74px 0; } }
   @media screen and (max-width: 767px) {
     .family-incp-section {
-      padding: 70px 0 65px 0; } }
+      padding: 70px 0 65px 0;
+      background-position: -260px 0 !important; } }
   @media screen and (max-width: 680px) {
     .family-incp-section {
-      padding: 55px 0 55px 0; } }
+      padding: 55px 0 55px 0;
+      background-position: -390px 0 !important; } }
   .family-incp-section .container-block {
     height: 100%; }
     .family-incp-section .container-block .row {
@@ -1667,10 +1684,10 @@ textarea.texareabox:-ms-input-placeholder {
       letter-spacing: 0.7px; }
 
 .cas-sec1 {
-  background: url(../images/bg-img/call-action.png) center center no-repeat; }
+  background: url(../images/bg-img/call-action.jpg) center center no-repeat; }
 
 .cas-sec2 {
-  background: url(../images/bg-img/call-action3.png) center center no-repeat; }
+  background: url(../images/bg-img/call-action3.jpg) center center no-repeat; }
 
 .call-action-section {
   width: 100%;
@@ -1680,7 +1697,8 @@ textarea.texareabox:-ms-input-placeholder {
   overflow: hidden; }
   @media screen and (max-width: 1024px) {
     .call-action-section {
-      background-position: -500px 0 !important; } }
+      background-position: -500px 0 !important;
+      padding: 86px 0 74px 0; } }
   @media screen and (max-width: 767px) {
     .call-action-section {
       padding: 70px 0 65px 0; } }
@@ -1818,13 +1836,14 @@ textarea.texareabox:-ms-input-placeholder {
   width: 100%;
   float: left;
   position: relative;
-  background: url(../images/bg-img/call-action2.png) center center no-repeat;
+  background: url(../images/bg-img/call-action2.jpg) center center no-repeat;
   background-size: cover;
   padding: 126px 0 114px 0;
   overflow: hidden; }
   @media screen and (max-width: 1024px) {
     .call-too-section {
-      background-position: -940px 0 !important; } }
+      background-position: -940px 0 !important;
+      padding: 86px 0 74px 0; } }
   @media screen and (max-width: 767px) {
     .call-too-section {
       padding: 70px 0 65px 0;
@@ -1954,7 +1973,8 @@ textarea.texareabox:-ms-input-placeholder {
   overflow: hidden; }
   @media screen and (max-width: 1024px) {
     .call-thr-section {
-      background-position: -640px 0 !important; } }
+      background-position: -640px 0 !important;
+      padding: 86px 0 74px 0; } }
   @media screen and (max-width: 767px) {
     .call-thr-section {
       padding: 70px 0 65px 0; } }
@@ -2122,15 +2142,22 @@ textarea.texareabox:-ms-input-placeholder {
   height: 648px;
   position: relative;
   overflow: hidden;
-  background: url(../images/bg-img/family-incp-contact.png) center center no-repeat;
+  background: url(../images/bg-img/family-incp-contact.jpg) center center no-repeat;
   background-size: cover; }
+  @media screen and (max-width: 1024px) {
+    .banner-innerpage-block {
+      background-position: center 0 !important;
+      background: url(../images/bg-img/family-incp-contact-small.jpg) center center no-repeat;
+      background-size: cover; } }
   @media screen and (max-width: 767px) {
     .banner-innerpage-block {
-      background-position: center center !important; } }
+      background-position: center 0 !important;
+      background: url(../images/bg-img/family-incp-contact-small.jpg) center center no-repeat;
+      background-size: cover; } }
   @media screen and (max-width: 680px) {
     .banner-innerpage-block {
       height: 424px;
-      background-position: center center !important;
+      background-position: -500px 0 !important;
       background-size: cover; } }
   .banner-innerpage-block .banner-logo {
     position: absolute;
@@ -2472,7 +2499,7 @@ textarea.texareabox:-ms-input-placeholder {
             float: left;
             font-size: 16px;
             color: #888a8d;
-            margin: 6px 10px 0 4px; }
+            margin: 2px 10px 0 4px; }
             @media screen and (max-width: 479px) {
               .inner-page-block .blog-listing-block ul li .blog-share-block .share-left span {
                 margin: 6px 10px 5px 4px; } }
@@ -2805,11 +2832,11 @@ textarea.texareabox:-ms-input-placeholder {
       display: none; } }
 
 .blog-banner {
-  background: url(../images/bg-img/blog-listing.png) center center no-repeat;
+  background: url(../images/bg-img/blog-listing.jpg) center center no-repeat;
   background-size: cover; }
 
 .about_banner {
-  background: url(../images/bg-img/call-action2-inner.png) center center no-repeat;
+  background: url(../images/bg-img/call-action2-inner.jpg) center center no-repeat;
   background-size: cover; }
 
 .blog-block {
@@ -3106,7 +3133,7 @@ textarea.texareabox:-ms-input-placeholder {
   width: 100%;
   float: left;
   padding: 0 0 0 0; }
-  @media screen and (max-width: 991px) {
+  @media screen and (max-width: 766px) {
     .about-mid-content .container-block .middle-content-block {
       display: none; } }
   .about-mid-content .container-block .middle-content-block .column-6 {
@@ -3236,6 +3263,9 @@ textarea.texareabox:-ms-input-placeholder {
     width: 100%;
     float: left;
     padding: 94px 106px 83px 113px; }
+    @media screen and (max-width: 1024px) {
+      .innerpage-content-block .conten-inner-block {
+        padding: 94px 40px 83px 40px; } }
     @media screen and (max-width: 991px) {
       .innerpage-content-block .conten-inner-block {
         padding: 94px 40px 83px 40px; } }
@@ -3671,6 +3701,9 @@ textarea.texareabox:-ms-input-placeholder {
 
 .parallax.up {
   background-attachment: fixed; }
+  @media screen and (max-width: 1024px) {
+    .parallax.up {
+      background-attachment: scroll; } }
 
 .about_banner .container-block .inner-page-content ul li span {
   margin-left: 6px; }
@@ -3689,5 +3722,22 @@ textarea.texareabox:-ms-input-placeholder {
     padding: 27px 0 47px 0; } }
 .ios header #header-main .header-part .get-load a span {
   top: -1px; }
+
+.ios-device video {
+  display: none; }
+@media screen and (max-width: 1024px) {
+  .ios-device .ios-banner {
+    background: url(../images/banner/ipad-banner.jpg) center center no-repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0; } }
+@media screen and (max-width: 767px) {
+  .ios-device .ios-banner {
+    background: url(../images/banner/small-banner.jpg) center center no-repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0; } }
 
 /*# sourceMappingURL=style.css.map */

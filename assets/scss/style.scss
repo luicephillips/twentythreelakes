@@ -232,6 +232,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         right: 0;
         top: 0;
         bottom: 0;
+        z-index: 2;
         background: $banner-bg-color;        
     }
     
@@ -241,16 +242,20 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         left: 0;
         min-width: 100%;
         min-height: 100%;
-        z-index: -100;
+        z-index: 1;
         background: url(../images/banner/banner-video-poster.jpg) no-repeat;
         background-size: cover;
         transition: 1s opacity;
+        
+        @include media(max-width 767px) {
+            background: url(../images/banner/small-banner.jpg) no-repeat;
+        }
     }    
     
     .banner-content-block {          
         height: 100%;
         position: relative;
-        z-index: 1;
+        z-index: 9;
         
         .container-block {
             height: 100%;
@@ -473,9 +478,15 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     }
     
     .info-sec-block {
-        width: 100%;
+        @include span-columns(4);
         float: $left;
-        @include margin(10px, 0, 10px, 0);
+        margin-top: 10px;
+        margin-bottom: 10px;
+        
+        @include media(max-width 767px) {
+            width: 100%;
+            margin-right: 0;
+        }
         
         img {
             width: 100%;
@@ -500,21 +511,24 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     width: 100%;
     float: $left;
     position: relative;
-    background: url(../images/bg-img/family-incp.png) center center no-repeat;
+    background: url(../images/bg-img/family-incp.jpg) center center no-repeat;
     background-size: cover;
     @include pad(126px 0 114px 0);
     overflow: hidden;
     
     @include media(max-width 1024px) {
        background-position: -940px 0 !important;
+        @include pad(86px 0 74px 0);
     }
     
     @include media(max-width 767px) {
        @include pad(70px 0 65px 0);
+        background-position: -260px 0 !important;
     }
     
     @include media(max-width 680px) {
        @include pad(55px 0 55px 0);
+        background-position: -390px 0 !important;
     }
     
     .container-block {
@@ -684,10 +698,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
 }
 
 .cas-sec1 {
-    background: url(../images/bg-img/call-action.png) center center no-repeat;
+    background: url(../images/bg-img/call-action.jpg) center center no-repeat;
 }
 .cas-sec2 {
-    background: url(../images/bg-img/call-action3.png) center center no-repeat;
+    background: url(../images/bg-img/call-action3.jpg) center center no-repeat;
 }
 
 
@@ -700,6 +714,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     
     @include media(max-width 1024px) {
        background-position: -500px 0 !important;
+        @include pad(86px 0 74px 0);
     }
     
     @include media(max-width 767px) {
@@ -864,13 +879,14 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     width: 100%;
     float: $left;
     position: relative;
-    background: url(../images/bg-img/call-action2.png) center center no-repeat;
+    background: url(../images/bg-img/call-action2.jpg) center center no-repeat;
     background-size: cover;
     @include pad(126px 0 114px 0);
     overflow: hidden;
     
     @include media(max-width 1024px) {
        background-position: -940px 0 !important;
+        @include pad(86px 0 74px 0);
     }
     
     @include media(max-width 767px) {
@@ -1034,6 +1050,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     
     @include media(max-width 1024px) {
        background-position: -640px 0 !important;
+        @include pad(86px 0 74px 0);
     }
     
     @include media(max-width 767px) {
@@ -1254,16 +1271,24 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     height: 648px;
     position: relative;
     overflow: hidden;
-    background: url(../images/bg-img/family-incp-contact.png) center center no-repeat;
+    background: url(../images/bg-img/family-incp-contact.jpg) center center no-repeat;
     background-size: cover;
     
+    @include media(max-width 1024px) {
+        background-position: center 0 !important;
+        background: url(../images/bg-img/family-incp-contact-small.jpg) center center no-repeat;
+        background-size: cover;
+    }
+    
     @include media(max-width 767px) {
-        background-position: center center !important;
+        background-position: center 0 !important;
+        background: url(../images/bg-img/family-incp-contact-small.jpg) center center no-repeat;
+        background-size: cover;
     }
     
     @include media(max-width 680px) {
         height: 424px;
-        background-position: center center !important;
+        background-position: -500px 0 !important;
         background-size: cover;
     }
     
@@ -1706,7 +1731,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                             float: $left;
                             font-size: $xsmall-text;
                             color: $video-font-color;
-                            @include margin(6px, 10px, 0, 4px);
+                            @include margin(2px, 10px, 0, 4px);
                             
                             @include media(max-width 479px) {
                                 @include margin(6px, 10px, 5px, 4px);
@@ -2177,12 +2202,12 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
 }
 
 .blog-banner {
-    background: url(../images/bg-img/blog-listing.png) center center no-repeat;
+    background: url(../images/bg-img/blog-listing.jpg) center center no-repeat;
     background-size: cover;
 }
 
 .about_banner {
-    background: url(../images/bg-img/call-action2-inner.png) center center no-repeat;
+    background: url(../images/bg-img/call-action2-inner.jpg) center center no-repeat;
     background-size: cover;
 }
 
@@ -2596,7 +2621,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
             float: $left;
             @include pad(0 0 0 0);
             
-            @include media(max-width 991px) {
+            @include media(max-width 766px) {
                display: none;
              }
             
@@ -2774,6 +2799,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         width: 100%;
         float: $left;   
         @include pad(94px 106px 83px 113px);
+        
+        @include media(max-width 1024px) {
+           @include pad(94px 40px 83px 40px);
+         }
         
         @include media(max-width 991px) {
            @include pad(94px 40px 83px 40px);
@@ -3346,6 +3375,10 @@ h2 {
 }
 .parallax.up {
     background-attachment: fixed;
+    
+     @include media(max-width 1024px) {
+         background-attachment: scroll;
+    }
 }
 
 .about_banner {
@@ -3403,5 +3436,34 @@ h2 {
             }
         }
     }
+}
+
+
+.ios-device {
+    
+    video {
+        display: none;        
+    }
+    
+    @include media(max-width 1024px) {
+        .ios-banner {
+            background: url(../images/banner/ipad-banner.jpg) center center no-repeat;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+        }
+    }
+    
+    @include media(max-width 767px) {
+        .ios-banner {
+            background: url(../images/banner/small-banner.jpg) center center no-repeat;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+        }
+    }
+    
 }
 

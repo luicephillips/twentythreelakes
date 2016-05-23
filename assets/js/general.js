@@ -197,7 +197,8 @@ jQuery(document).ready(function () {
     }).addClass("transtion");
     
     if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
-        $("#bgvid").attr("controls",true);    
+//        $("#bgvid").attr("controls",true);   
+         $("body").addClass("ios-device");
     }
 
     $(".selectbox1").selectbox();
