@@ -76,6 +76,10 @@ body {margin: 0; padding: 0; font-size:14px;color:#888a8d;
 /*--------sticky footer or vertical footer------------*/
 .wrapper {min-height: 100%; height: auto !important; height: 100%; margin: 0 auto; padding-top: 70px; overflow-x: hidden; position: relative;
     
+@include media(max-width 991px) {
+    padding-top: 68px;
+}
+    
 @include media(max-width 680px) {
     padding-top: 88px;
 }
@@ -516,6 +520,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     @include pad(126px 0 114px 0);
     overflow: hidden;
     
+    @include media(max-width 1599px) {
+        @include pad(111px 0 99px 0);
+    }
+    
     @include media(max-width 1024px) {
        background-position: -940px 0 !important;
         @include pad(86px 0 74px 0);
@@ -523,7 +531,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     
     @include media(max-width 767px) {
        @include pad(70px 0 65px 0);
-        background-position: -260px 0 !important;
+        background-position: -890px 0 !important;
     }
     
     @include media(max-width 680px) {
@@ -712,6 +720,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     @include pad(126px 0 114px 0);
     overflow: hidden;
     
+    @include media(max-width 1599px) {
+        @include pad(111px 0 99px 0);
+    }
+    
     @include media(max-width 1024px) {
        background-position: -500px 0 !important;
         @include pad(86px 0 74px 0);
@@ -789,7 +801,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         width: 96%;
         
         @include media(max-width 680px) {
-           font-size: $xxxsmall-text;
+           font-size: $sxsmall-text;
             line-height: 24px;
         }
     }
@@ -832,7 +844,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     float: $left;
     position: relative;
     @include pad(126px 0 125px 0);
-    text-align: center;
+    text-align: center;    
     
     @include media(max-width 680px) {
        @include pad(56px 0 65px 0);
@@ -857,6 +869,37 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     }
     
     a {
+        color: $lightgray-color;
+    }
+    
+    ul {
+        display: none;
+        margin: 0 auto;
+        width: 245px;
+        margin-top: 25px;
+        box-shadow: 0px 2px 7px 0px #d1d1d1;
+        position: absolute;
+        top: 20px;
+        z-index: 999;
+        background: $white-color;
+        
+        li {
+            display: block;
+            
+            &:hover {
+                background: $inner-page-color;
+            }
+            
+            a {
+                color: $lightgray-color;
+                @include pad(20px 0 20px 0); 
+                display: inline-block;
+                width: 100%;
+            }
+        }
+    }
+    
+    .select-lng {
         width: auto;
         display: table;
         @include margin(36px, auto, 0, auto);
@@ -864,13 +907,24 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         border-bottom: 1px solid $chs-lng-color;
         padding-bottom: 23px;
         font-size: $xsmall-text;
+        cursor: pointer;
+        position: relative;
         
         img {
             vertical-align: middle;
             display: inline-block;
             @include margin(0, 12px, 0, 12px);            
         }
+        
+//        &:hover {
+//            border-bottom: 1px solid $white-color;
+//            
+//            ul {
+//                display: table;
+//            }
+//        }        
     }
+    
 }
 
 
@@ -884,18 +938,28 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     @include pad(126px 0 114px 0);
     overflow: hidden;
     
+    @include media(max-width 1599px) {
+        @include pad(111px 0 99px 0);
+        background: url(../images/bg-img/call-action2_small.jpg) center center no-repeat;
+    }
+    
     @include media(max-width 1024px) {
-       background-position: -940px 0 !important;
+       background-position: -920px 0 !important;
         @include pad(86px 0 74px 0);
     }
     
     @include media(max-width 767px) {
         @include pad(70px 0 65px 0);
-        background-position: -500px 0 !important;
+        background-position: -1050px 0 !important;
     }
     
     @include media(max-width 680px) {
        @include pad(55px 0 55px 0);
+        background-position: -1210px 0 !important;
+    }
+    
+    @include media(max-width 479px) {
+        background-position: -1230px 0 !important;
     }
     
     .container-block {
@@ -962,7 +1026,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         width: 96%;
         
         @include media(max-width 680px) {
-           font-size: $xxxsmall-text;
+           font-size: $sxsmall-text;
             line-height: 24px;
         }
     }
@@ -1008,6 +1072,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     text-align: center;
     background: $prtner-logo-bg;
     
+    @include media(max-width 1599px) {
+        @include pad(111px 0 99px 0);
+    }
+    
     @include media(max-width 680px) {
        @include pad(56px 0 65px 0);
     }
@@ -1022,8 +1090,19 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                @include margin(0, 15px, 0, 15px);
              }
             
+            @include media(max-width 1199px) {
+               @include margin(0, 0, 0, 0);
+                width: 19.5%;
+                @include pad(0 10px 0 10px);
+             }
+            
             @include media(max-width 991px) {
-               @include margin(15px, 15px, 15px, 15px);
+               @include margin(15px, 0, 15px, 0);
+             }
+            
+            @include media(max-width 767px) {
+               @include margin(15px, 0, 15px, 0);
+                width: auto;
              }
             
             a {
@@ -1047,6 +1126,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     position: relative;
     @include pad(126px 0 118px 0);
     overflow: hidden;
+    
+    @include media(max-width 1599px) {
+        @include pad(111px 0 99px 0);
+    }
     
     @include media(max-width 1024px) {
        background-position: -640px 0 !important;
@@ -1111,7 +1194,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         display: inline-block;
         
         @include media(max-width 680px) {
-           font-size: $xxxsmall-text;
+           font-size: $sxsmall-text;
             line-height: 24px;
         }
     }
@@ -1274,9 +1357,14 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     background: url(../images/bg-img/family-incp-contact.jpg) center center no-repeat;
     background-size: cover;
     
+    @include media(max-width 1599px) {
+        height: 548px;
+        background-size: inherit !important;
+    }
+    
     @include media(max-width 1024px) {
         background-position: center 0 !important;
-        background: url(../images/bg-img/family-incp-contact-small.jpg) center center no-repeat;
+        //background: url(../images/bg-img/family-incp-contact-small.jpg) center center no-repeat;
         background-size: cover;
     }
     
@@ -1288,7 +1376,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     
     @include media(max-width 680px) {
         height: 424px;
-        background-position: -500px 0 !important;
+        /*background-position: -500px 0 !important;*/
         background-size: cover;
     }
     
@@ -1848,6 +1936,13 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
             padding-bottom: 30px;
         }
         
+        img {
+            
+            @include media(max-width 991px) {
+                width: 100%;
+             }
+        }
+        
         .blog-share-block {
             width: 100%;
             float: $left;
@@ -2219,6 +2314,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     @include box-shadow;
     
     @include media(max-width 1599px) {
+        @include pad(27px 25px 29px 25px);
+    }
+    
+    @include media(max-width 479px) {
         @include pad(27px 15px 29px 15px);
     }
     
@@ -2226,6 +2325,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         position: absolute;
         left: 12px;
         right: 13px;
+        top: 14px;
         background: $search-bg;
         
         &:after {
@@ -2262,7 +2362,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
 .categories-block {
     width: 100%;
     float: $left;
-    margin-top: 68px;
+    margin-top: 63px;
     
     h4 {
         color: $light-red-color;
@@ -2272,7 +2372,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     }
     
     ul {
-        padding-left: 16px;
+        padding-left: 15px;
         font-size: 12px;
         margin-top: 23px;
         color: $red-color;
@@ -2565,8 +2665,8 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                  }
                 
                 @include media(max-width 680px) {
-                   font-size: $xmedium-text;
-                    line-height: 32px;
+                   font-size: $small-text;
+                    line-height: 28px;
                  }
                 
                 a {
@@ -2594,8 +2694,8 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                      }
                     
                     @include media(max-width 680px) {
-                        font-size: $xmedium-text;
-                        line-height: 32px;
+                        font-size: $small-text;
+                        line-height: 28px;
                      }
                     
                     &:after {
@@ -2717,8 +2817,8 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                  }
                 
                 @include media(max-width 680px) {
-                   font-size: $xmedium-text;
-                    line-height: 32px;
+                   font-size: $small-text;
+                    line-height: 28px;
                  }
             }
             
@@ -2734,8 +2834,8 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                  }
                 
                 @include media(max-width 680px) {
-                   font-size: $xmedium-text;
-                    line-height: 32px;
+                   font-size: $small-text;
+                    line-height: 28px;
                     padding-bottom: 20px;
                  }
                 
@@ -2754,6 +2854,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
 
 .cas-sec3 {
     background: url(../images/bg-img/about-1.jpg) center center no-repeat;
+    background-size: cover;
     
     a {
         font-weight: $normal !important;
@@ -2768,12 +2869,34 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
 .cta-2 {
     background: url(../images/bg-img/about-2.jpg) center center no-repeat;
     
+    @include media(max-width 1199px) {
+        background: url(../images/bg-img/about-2_new.jpg) center center no-repeat;
+    }
+    
+    @include media(max-width 1024px) {
+        background: url(../images/bg-img/about-2.jpg) center center no-repeat;
+    }
+    
+    @include media(max-width 767px) {
+        background-position: -1110px 0 !important;
+    }
+    
+    @include media(max-width 680px) {
+        background-position: -1400px 0 !important;
+    }
+    
+    @include media(max-width 479px) {
+        background-position: -1460px 0 !important;
+    }
+    
     a {
         font-weight: $normal;
         @include pad(23px 45px 23px 45px);
     }
     
     .incp-content {
+        position: relative;
+        z-index: 1;
         
         p {
             @include media(max-width 991px) {

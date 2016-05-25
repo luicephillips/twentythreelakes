@@ -12,6 +12,54 @@ header {
             width: 100%;
             float: $left;
             background: $light-green;
+            position: relative;
+            opacity: 1;
+            
+            &:before {
+                content: "";
+                width: 1px;
+                height: 40px;
+                background: $divider-line;
+                position: absolute;
+                left: 33.33%;
+                bottom: 14px;
+                
+                @include media(max-width 767px) {
+                    height: 70px;
+                    left: 38.33%;
+                }
+                
+                @include media(max-width 680px) {
+                    left: 33.33%;
+                    bottom: 10px;
+                }
+                
+                @include media(max-width 479px) {
+                    content: none;
+                }
+            }
+            
+            &:after {
+                content: "";
+                width: 1px;
+                height: 40px;
+                background: $divider-line;
+                position: absolute;
+                left: 66.66%;
+                bottom: 14px;
+                
+                @include media(max-width 767px) {
+                    height: 70px;
+                }
+                
+                @include media(max-width 680px) {
+                    bottom: 10px;
+                }
+                
+                @include media(max-width 479px) {
+                    content: none;
+                }
+            }
             
             @include media(max-width 767px) {
                 opacity: 0;
@@ -26,7 +74,9 @@ header {
                     position: relative;
                     
                     @include media(max-width 767px) {
-                        @include pad(23px 0 21px 0);    
+                        @include pad(23px 5px 21px 5px);
+                        width: 33.3%;
+                        margin-right: 0;
                     }
                     
                     @include media(max-width 680px) {
@@ -41,42 +91,49 @@ header {
                         margin-right: 0;
                     }
                     
-                    &:after {
-                        content: "";
-                        width: 1px;
-                        height: 40px;
-                        background: $divider-line;
-                        position: absolute;
-                        right: -7.5%;
-                        bottom: 14px;
+                    &:first-child {
                         
                         @include media(max-width 767px) {
-                            height: 70px;
-                            right: -13.5%;
+                            width: 35.33%;
                         }
                         
                         @include media(max-width 680px) {
-                            bottom: 9px;
-                            right: 0;
+                            width: 33.33%;
                         }
                         
                         @include media(max-width 479px) {
-                            content: none;
+                            width: 100%;
+                        }
+                    }
+                                        
+                    &:nth-child(2) {
+                        
+                        @include media(max-width 767px) {
+                            width: 31.33%;
+                        }
+                        
+                        @include media(max-width 680px) {
+                            width: 33.33%;
+                        }
+                        
+                        @include media(max-width 479px) {
+                            width: 100%;
                         }
                     }
                     
-                    &:last-child {
-                        
-                        &:after {
-                            content: none;
-                        }
-                    }
                     
                     a {
                         color: $white-color;
                         text-transform: uppercase;
                         @include transition-effect; 
-                        letter-spacing: 1.2px;                        
+                        letter-spacing: 1.2px;   
+                        display: table;
+                        @include margin(0, auto, 0, auto);
+                        
+                        span {
+                            display: table-cell;
+                            vertical-align: middle;
+                        }
                         
                         @include media(max-width 991px) {
                             font-size: $xs-small-text;
@@ -84,7 +141,7 @@ header {
                         
                         @include media(max-width 767px) {
                                 width: 236px;
-                                display: inline-block;
+                                display: table;
                                 margin: 0 auto;
                                 font-size: $xmedium-text;
                         }
@@ -92,7 +149,7 @@ header {
                         @include media(max-width 680px) {
                                 width: 100%;
                                 font-size: $s-small-text;
-                                min-height: 44px;   
+                                min-height: 54px;   
                                 @include pad(0 5px 0 5px);
                         }
                         
@@ -121,6 +178,19 @@ header {
             
             .logo-block {
                 @include span-columns(3);
+                
+                @include media(max-width 991px min-width 768px) {
+                   position: absolute;
+                   top: 50%;
+                   @include translareY;
+                    
+                    a {                        
+                        
+                        img {
+                            width: 100% !important;
+                        }
+                    }
+                }
                 
                 @include media(max-width 767px) {
                    position: relative;
@@ -242,24 +312,7 @@ header {
                         @include translareX;
                         
                     }
-                    
-//                    &:after {
-//                        bottom: 100%;
-//                        left: 50%;
-//                        border: solid transparent;
-//                        content: "";
-//                        height: 0;
-//                        width: 0;
-//                        position: absolute;
-//                        pointer-events: none;
-//                        //border-color: rgba(136, 183, 213, 0);
-//                        border-bottom-color: $light-green;
-//                        border-width: 9px;
-//                        margin-left: -9px;
-//                        @include rotate180;
-//                        margin-bottom: -18px;
-//                    }
-                    
+                                        
                     &:before {
                         content: none;
                         
@@ -424,7 +477,6 @@ header {
                         width: 0;
                         position: absolute;
                         pointer-events: none;
-                        //border-color: rgba(136, 183, 213, 0);
                         border-bottom-color: $light-green;
                         border-width: 9px;
                         margin-left: -9px;
@@ -468,8 +520,12 @@ header {
     #header-main {
         
         .top-bar {
-            opacity: 0;
+            opacity: 1;
             @include transition-opacity;
+            
+            @include media(max-width 767px) {
+                opacity: 0;
+            }
         }
         
         .header-part {

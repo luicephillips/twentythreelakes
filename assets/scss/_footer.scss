@@ -242,10 +242,9 @@ footer{
                                 height: 18px;
                                 background: url("../images/icon/social-sprite.png") 0px -2px no-repeat;
                                 background-position: 0px -2px;
-                                @include transition-effect;
                                 
                                 &:hover {
-                                    background-position: 0px -21px;
+                                    background-position: 0px -22px;
                                 }
                             }
                             
@@ -254,10 +253,9 @@ footer{
                                 height: 18px;
                                 background: url("../images/icon/social-sprite.png") -18px -2px no-repeat;
                                 background-position: -18px -2px;
-                                @include transition-effect;
                                 
                                 &:hover {
-                                    background-position: -18px -21px;
+                                    background-position: -18px -22px;
                                 }
                             }
                             
@@ -266,7 +264,6 @@ footer{
                                 height: 20px;
                                 background: url("../images/icon/social-sprite.png") -36px 0px no-repeat;
                                 background-position: -36px 0px;
-                                @include transition-effect;
                                 
                                 &:hover {
                                     background-position: -36px -20px;
@@ -278,10 +275,9 @@ footer{
                                 height: 20px;
                                 background: url("../images/icon/social-sprite.png") -55px 0px no-repeat;
                                 background-position: -55px 0px;
-                                @include transition-effect;
                                 
                                 &:hover {
-                                    background-position: -55px -21px;
+                                    background-position: -55px -20px;
                                 }
                             }
                         }
@@ -319,6 +315,7 @@ footer{
                            width: 100%;
                             text-align: center;
                             margin-right: 0;
+                            padding: 0;
                         }
                         
                         &:first-child {

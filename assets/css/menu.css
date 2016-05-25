@@ -26,8 +26,8 @@
     margin-bottom: 13px;
     background: #a7a9ac;
     display: block;
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
 }
 .menu-icon.active span:nth-child(1) {
     transform: rotate(45deg) translateY(8px) translateX(12px);
@@ -98,7 +98,7 @@ li.dropdown > a, li.mega-menu-list > a{
     background: #fff;
     position: absolute;
     min-width: 385px;
-    padding-top: 39px;
+    padding-top: 28px;
     padding-left: 30px;
     padding-bottom: 33px;
 }
@@ -468,7 +468,8 @@ li.dropdown > a, li.mega-menu-list > a{
 
 .menu-icon .menu-box {
     right: 50px;
-    top: 20px;
+    top: 18px;
+    width: 46px;
 }
 .enumenu_ul > li > a {
     padding: 15px 0;

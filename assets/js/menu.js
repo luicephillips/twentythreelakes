@@ -88,7 +88,7 @@
             }
 
             function bindClickonMobilemenu(menuobj) {
-                menuobj.find('.arrow').on('touchstart click', function(e) {
+                menuobj.find('.arrow, a.menubelow').on('touchstart click', function(e) {
                     e.stopImmediatePropagation();
                     e.preventDefault();
                     var submenu = $(this).closest('li').children('.sb-menu');

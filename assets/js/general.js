@@ -8,18 +8,6 @@ jQuery(document).ready(function () {
         onMenuopen: function () {}
     });
 
-    /* Equal Height Function */
-    $('.middle-content-block').each(function () {
-        var highestBox = 0;
-        $('.column-6', this).each(function () {
-
-            if ($(this).height() > highestBox)
-                highestBox = $(this).height();
-        });
-
-        $('.column-6', this).height(highestBox);
-    });
-
     /* Accordian js */
     //$("#top-accordian").accordion({ firstactive:false });
     $("#top-accordian .accordion-title").bind("click", function (event) {
@@ -118,7 +106,7 @@ jQuery(document).ready(function () {
                                 commaSpan.insertAfter($(this));
                             }
                         })
-                    }else{
+                    } else {
                         var lastText_ = $(".errorlabel > span").eq(errorLen_ - 1).text() + ".";
                         $(".errorlabel > span").eq(errorLen_ - 1).html(lastText_);
                     }
@@ -181,13 +169,17 @@ jQuery(document).ready(function () {
                     duration: 400
                 });
             } else {
+                $(this).closest(".column-3").siblings().find(".footer-block ul").velocity("slideUp", {
+                    duration: 400
+                });
                 $(this).next().velocity("slideDown", {
                     duration: 400
                 });
+
             }
         }
     });
-    
+
     $("header .get-load img, header .get-started-btn img").css({
         '-webkit-transition': 'transform 0.2s ease 0.6s',
         '-moz-transition': 'transform 0.2s ease 0.6s',
@@ -195,17 +187,53 @@ jQuery(document).ready(function () {
         '-o-transition': 'transform 0.2s ease 0.6s',
         'transition': 'transform 0.2s ease 0.6s'
     }).addClass("transtion");
-    
-    if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
-//        $("#bgvid").attr("controls",true);   
-         $("body").addClass("ios-device");
+
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        //        $("#bgvid").attr("controls",true);   
+        $("body").addClass("ios-device");
     }
 
     $(".selectbox1").selectbox();
+
+    $(".select-lng > a").on("click", function (e) {
+        e.preventDefault();
+        if ($(this).parent().hasClass("open")) {
+            $(this).parent().removeClass("open");
+            $(this).next("ul").velocity("slideUp", {
+                duration: 400
+            });
+        } else {
+            $(this).parent().addClass("open");
+            $(this).next("ul").velocity("slideDown", {
+                duration: 400
+            });
+        }
+    });
+
+    $(".select-lng ul li a").on("click", function (e) {
+        e.preventDefault();
+        $(".select-lng").removeClass("open")
+        $(this).closest("ul").removeClass("open").velocity("slideUp", {
+            duration: 400
+        });
+    });
+
+    $("body").on("click touchstart", function (e) {
+        var container = $(".select-lng");
+        if (!container.is(e.target) && container.has(e.target).length === 0 && container.hasClass("open")) {
+            container.removeClass("open");
+            container.find("ul").velocity("slideUp", {
+                duration: 400
+            });
+        }
+    });
 });
 
 $(window).load(function () {
     stickyHeader();
+
+    //equalHeight()
+    equalHeight();
 
     $("body").addClass("loaded");
 
@@ -225,9 +253,13 @@ $(window).resize(function () {
 
     arrowAnimate();
 
+
+    //equalHeight()
+    equalHeight();
     if (window.innerWidth >= 768) {
         $(".footer-right-inner .footer-block ul").removeAttr("style");
     }
+
 });
 $(window).scroll(function () {
     stickyHeader();
@@ -280,7 +312,7 @@ function arrowAnimate() {
         });*/
         $(".get-started-btn  img").velocity({
             scale: scalVal
-        },0);
+        }, 0);
     }
 
     var obj2Offset = $(".get-load").offset().top;
@@ -295,15 +327,25 @@ function arrowAnimate() {
         });*/
         $(".get-load  img").velocity({
             scale: scalVal
-        },0);
+        }, 0);
     }
+}
+
+function equalHeight() {
+    $('.middle-content-block').each(function () {
+        var highestBox = 0;
+        $('.column-6', this).each(function () {
+            $(this).css("height", "");
+            if ($(this).height() > highestBox)
+                highestBox = $(this).height();
+        });
+        $('.column-6', this).height(highestBox);
+    });
 }
 
 
 
 
-
-;
 (function ($) {
     $.fn.parallaxx = function (options) {
         var obj = this;
@@ -324,64 +366,64 @@ function arrowAnimate() {
                 var objOffset = $this.offset().top;
                 var objHeight = $this.height();
                 var scroll = $(window).scrollTop();
-                var result = (scroll - objOffset) / 2;
-                if (scroll < objOffset) {
-                    if ($this.hasClass("left")) {
-                        $this.css({
-                            "background-position": result + "px 0"
-                        });
-                        /*$this.velocity({
-                            backgroundPosition: result + "px 0"
-                        }, 0);*/
-                    } else if ($this.hasClass("right")) {
-                        $this.css({
-                            "background-position": -(result + 500) + "px 0"
-                        });
-                        /*$this.velocity({
-                            backgroundPosition: result + "px 0"
-                        }, 0);*/
-                    } else if ($this.hasClass("up")) {
-                        $this.css({
-                            "background-position": "0 " + result + "px"
-                        });
-                        /*$this.velocity({
-                            backgroundPosition: "0 " + result + "px"
-                        }, 0);*/
-                    }
-                    //var gray = Math.abs(result/2);
-
-                    //var gray_ = (((scroll - (objOffset + objHeight))/(objOffset + objHeight)) * 0.7)+0.7;
-                    if (scroll > (objOffset - (windowHeight / 3))) {
-                        //$this.css({"filter":"grayscale("+(100 - gray)+"%)","-webkit-filter":"grayscale("+(100 - gray)+"%)"})
-                        
-                        //var gray_ = (((scroll - (objOffset)) / (objOffset)) * 0.7) + 0.7;
-                        var gray_ = (((scroll - (objOffset + windowHeight)) / (objOffset + windowHeight)) * 0.7) + 0.7;
-                        $this.find(".overlay-bg").css('background-color', 'rgba(0,0,0,' + gray_ + ')');
-                        
-                        /*$this.find(".overlay-bg").velocity({
-                            backgroundColor: 'rgba(0,0,0,' + gray_ + ')'
-                        }, 0)*/
-                    } else {
-                        $this.find(".overlay-bg").css('background-color', 'rgba(0,0,0,0)');
-                    }
-                } else {
-                    result = 0;
-                    if ($this.hasClass("left")) {
-                        $this.css({
-                            "background-position": result + "px 0"
-                        });
-                    } else if ($this.hasClass("right")) {
-                        $this.css({
-                            "background-position": -(result + 500) + "px 0"
-                        });
-                    } else if ($this.hasClass("up")) {
-                        $this.css({
-                            "background-position": "0 " + result + "px"
-                        });
-                    }
-                    $this.find(".overlay-bg").css('background-color', 'rgba(0,0,0,0.7)');
-                    //$this.css({"filter":"grayscale(100%)","-webkit-filter":"grayscale(100%)"})
+                var result = (scroll - objOffset) / 5;
+                //if (scroll < objOffset) {
+                if ($this.hasClass("left")) {
+                    $this.css({
+                        "background-position": (result - 500) + "px 0"
+                    });
+                    /*$this.velocity({
+                        backgroundPosition: result + "px 0"
+                    }, 0);*/
+                } else if ($this.hasClass("right")) {
+                    $this.css({
+                        "background-position": -(result + 350) + "px 0"
+                    });
+                    /*$this.velocity({
+                        backgroundPosition: result + "px 0"
+                    }, 0);*/
+                } else if ($this.hasClass("up")) {
+                    $this.css({
+                        "background-position": "0 " + result + "px"
+                    });
+                    /*$this.velocity({
+                        backgroundPosition: "0 " + result + "px"
+                    }, 0);*/
                 }
+                //var gray = Math.abs(result/2);
+
+                //var gray_ = (((scroll - (objOffset + objHeight))/(objOffset + objHeight)) * 0.7)+0.7;
+                if (scroll > (objOffset - (windowHeight / 2))) {
+                    //$this.css({"filter":"grayscale("+(100 - gray)+"%)","-webkit-filter":"grayscale("+(100 - gray)+"%)"})
+
+                    //var gray_ = (((scroll - (objOffset)) / (objOffset)) * 0.7) + 0.7;
+                    var gray_ = (((scroll - (objOffset + windowHeight)) / (objOffset + windowHeight)) * 0.7) + 0.7;
+                    $this.find(".overlay-bg").css('background-color', 'rgba(0,0,0,' + gray_ + ')');
+
+                    /*$this.find(".overlay-bg").velocity({
+                        backgroundColor: 'rgba(0,0,0,' + gray_ + ')'
+                    }, 0)*/
+                } else {
+                    $this.find(".overlay-bg").css('background-color', 'rgba(0,0,0,0)');
+                }
+                /* } else {
+                     result = 0;
+                     if ($this.hasClass("left")) {
+                         $this.css({
+                             "background-position": result + "px 0"
+                         });
+                     } else if ($this.hasClass("right")) {
+                         $this.css({
+                             "background-position": -(result + 500) + "px 0"
+                         });
+                     } else if ($this.hasClass("up")) {
+                         $this.css({
+                             "background-position": "0 " + result + "px"
+                         });
+                     }
+                     $this.find(".overlay-bg").css('background-color', 'rgba(0,0,0,0.7)');
+                     //$this.css({"filter":"grayscale(100%)","-webkit-filter":"grayscale(100%)"})
+                 }*/
             })
         }
         var init = function () {
@@ -400,8 +442,8 @@ function arrowAnimate() {
     }
 
     $(".parallax").parallaxx()
-    
-    
-    
-    
+
+
+
+
 })(jQuery);
