@@ -27,6 +27,7 @@ header {
                 @include media(max-width 767px) {
                     height: 70px;
                     left: 38.33%;
+                    @include pad(0 0);
                 }
                 
                 @include media(max-width 680px) {
@@ -64,6 +65,9 @@ header {
             @include media(max-width 767px) {
                 opacity: 0;
             }
+            @include media(max-width 640px) {
+                
+            }
             
             ul {
                 
@@ -82,19 +86,36 @@ header {
                     @include media(max-width 680px) {
                         width: 33.3%;
                         margin-right: 0;
-                        @include pad(23px 5px 21px 5px);
+//                        @include pad(23px 5px 21px 5px);
+                        @include pad(5px 0);
                     }
                     
                     @include media(max-width 479px) {
                         @include pad(15px 0 15px 0);  
                         width: 100%;
+//                        width: 33%;
+                        width: 100%;
                         margin-right: 0;
+                        display: inline-block;
+                        vertical-align: top;
                     }
                     
                     &:first-child {
                         
+                        @include media(max-width 991px) {
+                            
+                            a {
+                                position: relative;
+                                left: 5px;
+                            }
+                        }
+                        
                         @include media(max-width 767px) {
                             width: 35.33%;
+                            
+                            a {
+                                left: 0;
+                            }
                         }
                         
                         @include media(max-width 680px) {
@@ -105,7 +126,7 @@ header {
                             width: 100%;
                         }
                     }
-                                        
+                                            
                     &:nth-child(2) {
                         
                         @include media(max-width 767px) {
@@ -148,8 +169,10 @@ header {
                         
                         @include media(max-width 680px) {
                                 width: 100%;
-                                font-size: $s-small-text;
-                                min-height: 54px;   
+//                                font-size: $s-small-text;
+                                min-height: 54px;
+                                font-size: 12px;
+                                letter-spacing: 0.2px;
                                 @include pad(0 5px 0 5px);
                         }
                         
@@ -161,6 +184,32 @@ header {
                             color: $light-red-color;
                         }
                     }
+//                    &:last-child
+//                    {
+//                        &:after {
+//                            display: none;
+//                        }
+//                    }
+//                    &:after {
+//                        content: "";
+//                        width: 1px;
+//                        height: 40px;
+//                        background: $divider-line;
+//                        position: absolute;
+//                        right: 0;
+//                        bottom: 14px;
+//                            @include media(max-width 767px) {
+//                                height: 70px;
+//                            }
+//
+//                            @include media(max-width 680px) {
+//                                bottom: 10px;
+//                            }
+//
+//                            @include media(max-width 479px) {
+//                                content: none;
+//                            }
+//                    }
                 }
             }
         }
@@ -169,7 +218,8 @@ header {
             width: 100%;
             float: $left;
             position: relative;
-            background: $light-white-color;
+//            background: $light-white-color;
+            background: $prtner-logo-bg;
             z-index: 9;
             
             @include media(max-width 767px) {
@@ -223,12 +273,12 @@ header {
                         
                         @include media(max-width 1599px) {
                             width: 215px;
-                            @include margin(23px, 0, 19px, 0);
+                            @include margin(17px, 0, 14px, 0);
                         }
                         
                         @include media(max-width 1199px) {
                             width: 210px;
-                            @include margin(23px, 0, 20px, 0);
+                            @include margin(17px, 0, 14px, 0);
                         }
                         
                         @include media(max-width 991px) {
@@ -242,7 +292,31 @@ header {
                         }
                         
                         @include media(max-width 680px) {
-                            @include margin(24px, 0, 19px, 0);
+                            @include margin(15px, 0, 10px, 0);
+                        }
+                        
+                        @include media(max-width 479px) {
+                            @include margin(12px, 0, 7px, 0);
+                        }
+                    }
+                }
+                &.landing-header {
+                    @include media(max-width 767px) {
+                        display: inline-block;
+                        vertical-align: middle;
+                        float: none;
+                        width: 46%;
+                    }
+                    @include media(max-width 479px) {
+                        width: 100%;
+                        float: left;
+                        text-align: center;
+                        margin: 0;
+                    }
+                    a {
+                        @include media(max-width 480px) {
+                            float: none;
+                            margin-left: 0;
                         }
                     }
                 }
@@ -253,6 +327,10 @@ header {
                 text-align: $right;
                 padding-right: 175px;
                 float: $right;
+                
+                @include media(max-width 1199px) {
+                    padding-right: 195px;
+                }
                 
                 @include media(max-width 991px) {
                     padding-right: 135px;
@@ -265,6 +343,45 @@ header {
                         width: 100%;
                         padding: 0;
                         margin-right: 0;
+                }
+                &.landing {
+                    padding-right: 9.2%;
+                    @include media(max-width 1199px) {
+                        padding-right: 30px;
+                    }                    
+                    @include media(max-width 767px) {
+                        position: relative;
+                        float: none;
+                        width: 50%;
+                        display: inline-block;
+                        vertical-align: middle;
+                        padding-right: 15px;
+                    }
+                    @include media(max-width 480px) {
+                        width: 100%;
+                        padding-right: 0;
+                        text-align: center;
+                    }
+                    ul {
+                        @include pad(30px 0);
+                        @include media(max-width 480px) {
+                            @include pad(10px 0);                            
+                        }
+                        li {
+                            font-size: $small-text;
+                            color: $call-us;
+                            @include media(max-width 640px) {
+                                font-size: $xsmall-text;
+                            }
+                            a {
+                                color: $call-us;
+                                font-weight: $bold;
+                                &:hover {
+                                    color: $light-green;
+                                }
+                            }
+                        }
+                    }
                 }
             }
             
@@ -308,8 +425,12 @@ header {
                     span {
                         position: absolute;
                         top: -5px;
-                        left: 50%;
-                        @include translareX;
+//                        left: 50%;
+//                        @include translareX;
+                        
+                        left: 0;
+                        right: 0;
+                        margin: auto;
                         
                     }
                                         
@@ -318,7 +439,7 @@ header {
                         
                         @include media(max-width 767px) {
                             content: "";
-                            background: url(../images/icon/arrow-up-icon.png) center center no-repeat;
+                            background: url(../images/icon/arrow-up-icon.svg) center center no-repeat;
                             position: absolute;
                             top: 0;
                             left: 0;
@@ -353,11 +474,11 @@ header {
                 }
                 
                 @include media(max-width 680px) {
-                    width: 60px;
+                    width: 84px;
                 }
                 
                 @include media(max-width 479px) {
-                    width: 50px;
+                    width: 74px;
                 }
                 
                 a {
@@ -398,7 +519,7 @@ header {
                         
                         @include media(max-width 767px) {
                             content: "";
-                            background: url(../images/icon/arrow-up-icon.png) center center no-repeat;
+                            background: url(../images/icon/arrow-up-icon.svg) center center no-repeat;
                             position: absolute;
                             top: 0;
                             left: 0;
@@ -435,11 +556,11 @@ header {
                 }
                 
                 @include media(max-width 680px) {
-                    width: 60px;
+                    width: 84px;
                 }
                 
                 @include media(max-width 479px) {
-                    width: 50px;
+                    width: 74px;
                 }
                 
                 a {
@@ -486,7 +607,7 @@ header {
                     
                     &:before {
                         content: "";
-                            background: url(../images/icon/arrow-up-icon.png) center center no-repeat;
+                            background: url(../images/icon/arrow-up-icon.svg) center center no-repeat;
                             position: absolute;
                             top: 0;
                             left: 0;
@@ -496,7 +617,7 @@ header {
                         
                         @include media(max-width 767px) {
                             content: "";
-                            background: url(../images/icon/arrow-up-icon.png) center center no-repeat;
+                            background: url(../images/icon/arrow-up-icon.svg) center center no-repeat;
                             position: absolute;
                             top: 0;
                             left: 0;
@@ -525,6 +646,8 @@ header {
             
             @include media(max-width 767px) {
                 opacity: 0;
+                text-align: center;
+                padding: 0 8px;
             }
         }
         
@@ -700,15 +823,17 @@ header {
     }
 } 
 
-.stickyHeader {
-    
+.stickyHeader {    
     .header-part {
-        @include box-shadow-menu;
+        @include box-shadow-menu;    
+        .navigation-block {
+           &.landing {
+               ul {
+                   @include media(max-width 479px) {
+                       @include pad(10px 0);                   
+                   }
+               }
+           }
+        }
     }
 }
-
-
-
-
-
-

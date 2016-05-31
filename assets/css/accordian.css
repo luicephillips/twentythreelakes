@@ -24,7 +24,7 @@ ul {
     transition: all 0.5s ease-out 0s;
 }
 .accordion-title:hover {
-    color: #76b7b7;
+    color: #de5841;
 }
 .accordion-title.active {
     background: url(../images/minus.png) 21px 42px no-repeat !important;

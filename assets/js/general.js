@@ -1,6 +1,16 @@
 // JavaScript Document
 var $ = jQuery.noConflict();
 
+//	$("#date").datepicker({
+//		numberOfMonths:1,
+//		dateFormat:"dd/mm/yy"
+//	});
+//	
+//	$("#date").on("blur", function(e) {$(this).datepicker("hide"); });
+//	
+//	$('#date').on("change",function(){
+//		$("#login-form").validate().element(this);
+//	})
 jQuery(document).ready(function () {
     //$('input,textarea').placeholder();
     $('.enumenu_ul').responsiveMenu({
@@ -73,11 +83,11 @@ jQuery(document).ready(function () {
                 required: "full name",
             },
             email: {
-                required: "email",
+                required: "a valid email address",
                 email: "a valid email address"
             },
             phone: {
-                required: "phone",
+                required: "your phone",
             },
             message: {
                 required: "message",
@@ -93,10 +103,13 @@ jQuery(document).ready(function () {
                 $("#messageBox1").velocity("fadeIn", {
                     duration: 400
                 })
+                $(".note").velocity("fadeOut", {
+                    duration: 400
+                })
                 setTimeout(function () {
                     var errorLen_ = $(".errorlabel > span").length;
                     if (errorLen_ > 1) {
-                        var lastText_ = " <small>and </small>" + $(".errorlabel > span").eq(errorLen_ - 1).text() + ".";
+                        var lastText_ = " <abbr>and </abbr>" + $(".errorlabel > span").eq(errorLen_ - 1).text() + ".";
                         $(".errorlabel > span").eq(errorLen_ - 1).html(lastText_);
                         $(".errorlabel > span").each(function (i) {
                             if ((errorLen_ - 1) != i && (errorLen_ - 2) != i) {
@@ -120,7 +133,9 @@ jQuery(document).ready(function () {
             $('#login-form .successmsg').velocity("fadeIn", {
                 duration: 400
             });
-
+            $(".note").velocity("fadeIn", {
+                duration: 400
+            })
             setTimeout(function () {
                 //$('#login-form .successmsg').fadeOut();
                 $('#login-form .successmsg').velocity("fadeOut", {
@@ -133,6 +148,9 @@ jQuery(document).ready(function () {
 
                 var option = $(".selectbox1").find("option").eq(0);
                 $(".selectbox1").selectbox("change", option.attr('value'), option.html());
+
+                var option = $(".selectbox2").find("option").eq(0);
+                $(".selectbox2").selectbox("change", option.attr('value'), option.html());
 
             }, 3000)
 
@@ -194,6 +212,7 @@ jQuery(document).ready(function () {
     }
 
     $(".selectbox1").selectbox();
+    $(".selectbox2").selectbox();
 
     $(".select-lng > a").on("click", function (e) {
         e.preventDefault();
@@ -227,6 +246,51 @@ jQuery(document).ready(function () {
             });
         }
     });
+    // paragraph word after other
+    //    var $el = $(".banner-text-last p:first"), text = $.trim($el.text()),
+    //        words = text.split(" "), html = "";
+    //
+    //    for (var i = 0; i < words.length; i++) {
+    //        html += "<span>" + words[i] + ((i+1) === words.length ? "" : " ") + "</span>";
+    //    };
+    //    $el.html(html).children().hide().each(function(i){
+    //      $(this).delay(i*200).fadeIn(700);
+    //    });
+    //    $el.find("span").promise().done(function(){
+    //        $el.text(function(i, text){
+    //           return $.trim(text);
+    //        });
+    //    });
+    var p = $(".banner-text-last p span.fade-text").hide();
+
+    function oneParagraph(i) {
+        if (p.length <= i)
+            return;
+        var cur = p.eq(i),
+            words = cur.text().split(/\s/),
+            span = $("<span>"),
+            before = document.createTextNode("");
+        cur.empty().show().append(before, span);
+        (function oneWord(j) {
+            if (j < words.length) {
+                span.hide().text(words[j]).fadeIn(400, function () {
+                    span.empty();
+                    before.data += words[j] + " ";
+                    oneWord(j + 1);
+                });
+            } else {
+                span.remove();
+                before.data = words.join(" ");
+                setTimeout(function () {
+                    oneParagraph(i + 1);
+                }, 500);
+            }
+        })(0);
+    };
+    setTimeout(function () {
+            oneParagraph(0);
+        }, 5000)
+        // end of word animation
 });
 
 $(window).load(function () {
@@ -300,34 +364,39 @@ function stickyHeader() {
 
 function arrowAnimate() {
     var scroll = $(window).scrollTop();
-    var objOffset = $(".get-started-btn").offset().top;
-    if (scroll < objOffset) {
-        var scalVal = 1 - scroll / objOffset;
-        /*$(".get-started-btn  img").css({
-            '-webkit-transform': 'scale(' + scalVal + ')',
-            '-moz-transform': 'scale(' + scalVal + ')',
-            '-ms-transform': 'scale(' + scalVal + ')',
-            '-o-transform': 'scale(' + scalVal + ')',
-            'transform': 'scale(' + scalVal + ')'
-        });*/
-        $(".get-started-btn  img").velocity({
-            scale: scalVal
-        }, 0);
+    if ($(".get-started-btn").length) {
+        var objOffset = $(".get-started-btn").offset().top;
+        if (scroll < objOffset) {
+            var scalVal = 1 - scroll / objOffset;
+            /*$(".get-started-btn  img").css({
+                '-webkit-transform': 'scale(' + scalVal + ')',
+                '-moz-transform': 'scale(' + scalVal + ')',
+                '-ms-transform': 'scale(' + scalVal + ')',
+                '-o-transform': 'scale(' + scalVal + ')',
+                'transform': 'scale(' + scalVal + ')'
+            });*/
+            $(".get-started-btn  img").velocity({
+                scale: scalVal
+            }, 0);
+        }
     }
 
-    var obj2Offset = $(".get-load").offset().top;
-    if (scroll < obj2Offset) {
-        var scalVal = 1 - scroll / obj2Offset;
-        /*$(".get-load  img").css({
-            '-webkit-transform': 'scale(' + scalVal + ')',
-            '-moz-transform': 'scale(' + scalVal + ')',
-            '-ms-transform': 'scale(' + scalVal + ')',
-            '-o-transform': 'scale(' + scalVal + ')',
-            'transform': 'scale(' + scalVal + ')'
-        });*/
-        $(".get-load  img").velocity({
-            scale: scalVal
-        }, 0);
+
+    if ($(".get-load").length) {
+        var obj2Offset = $(".get-load").offset().top;
+        if (scroll < obj2Offset) {
+            var scalVal = 1 - scroll / obj2Offset;
+            /*$(".get-load  img").css({
+                '-webkit-transform': 'scale(' + scalVal + ')',
+                '-moz-transform': 'scale(' + scalVal + ')',
+                '-ms-transform': 'scale(' + scalVal + ')',
+                '-o-transform': 'scale(' + scalVal + ')',
+                'transform': 'scale(' + scalVal + ')'
+            });*/
+            $(".get-load  img").velocity({
+                scale: scalVal
+            }, 0);
+        }
     }
 }
 
@@ -360,79 +429,55 @@ function equalHeight() {
 
         /*======= Get all baground position of all parallax div  and set into multidimantional arraty ====*/
         var parallax = function () {
-            obj.each(function () {
+            obj.each(function (i) {
                 var $this = $(this);
                 var windowHeight = $(window).height();
                 var objOffset = $this.offset().top;
                 var objHeight = $this.height();
                 var scroll = $(window).scrollTop();
                 var result = (scroll - objOffset) / 5;
-                //if (scroll < objOffset) {
                 if ($this.hasClass("left")) {
-                    $this.css({
-                        "background-position": (result - 500) + "px 0"
-                    });
-                    /*$this.velocity({
-                        backgroundPosition: result + "px 0"
-                    }, 0);*/
+                    $this.css({"background-position": (result - 500) + "px 0"});
                 } else if ($this.hasClass("right")) {
-                    $this.css({
-                        "background-position": -(result + 350) + "px 0"
-                    });
-                    /*$this.velocity({
-                        backgroundPosition: result + "px 0"
-                    }, 0);*/
+                    $this.css({"background-position": -(result + 350) + "px 0"});
                 } else if ($this.hasClass("up")) {
-                    $this.css({
-                        "background-position": "0 " + result + "px"
-                    });
-                    /*$this.velocity({
-                        backgroundPosition: "0 " + result + "px"
-                    }, 0);*/
+                    $this.css({"background-position": p[i][0]+"% " + result + "px"});
                 }
-                //var gray = Math.abs(result/2);
-
-                //var gray_ = (((scroll - (objOffset + objHeight))/(objOffset + objHeight)) * 0.7)+0.7;
                 if (scroll > (objOffset - (windowHeight / 2))) {
-                    //$this.css({"filter":"grayscale("+(100 - gray)+"%)","-webkit-filter":"grayscale("+(100 - gray)+"%)"})
-
-                    //var gray_ = (((scroll - (objOffset)) / (objOffset)) * 0.7) + 0.7;
                     var gray_ = (((scroll - (objOffset + windowHeight)) / (objOffset + windowHeight)) * 0.7) + 0.7;
-                    $this.find(".overlay-bg").css('background-color', 'rgba(0,0,0,' + gray_ + ')');
-
-                    /*$this.find(".overlay-bg").velocity({
-                        backgroundColor: 'rgba(0,0,0,' + gray_ + ')'
-                    }, 0)*/
+                    $this.find(".overlay-bg").css('background-color', 'rgba(79,80,84,' + gray_ + ')');
                 } else {
                     $this.find(".overlay-bg").css('background-color', 'rgba(0,0,0,0)');
                 }
-                /* } else {
-                     result = 0;
-                     if ($this.hasClass("left")) {
-                         $this.css({
-                             "background-position": result + "px 0"
-                         });
-                     } else if ($this.hasClass("right")) {
-                         $this.css({
-                             "background-position": -(result + 500) + "px 0"
-                         });
-                     } else if ($this.hasClass("up")) {
-                         $this.css({
-                             "background-position": "0 " + result + "px"
-                         });
-                     }
-                     $this.find(".overlay-bg").css('background-color', 'rgba(0,0,0,0.7)');
-                     //$this.css({"filter":"grayscale(100%)","-webkit-filter":"grayscale(100%)"})
-                 }*/
             })
         }
+        var getypos = function (){
+            obj.removeAttr("style")
+            p = [],
+            obj.each(function(i) {
+                p.push($(this).css("background-position"));
+                console.log($(this) ,$(this).css("background-position"))
+            })
+            for (var i = 0; i < p.length; i++) {
+                p[i] = p[i].split(" ")
+            }
+            for (var i = 0; i < p.length; i++) {
+                for (var j = 0; j < p[i].length; j++) {
+                    p[i][j] = parseFloat(p[i][j].replace(/px/g,""))
+                }
+            }
+            console.log(p)
+        }
         var init = function () {
-            parallax()
+            getypos();
+            parallax();
+            $(window).bind("resize", getypos)
             $(window).bind("scroll", parallax)
             var image = "parallax bind successfuly"
             settings.onParallaxBind(image);
         }
         obj.destroy = function () {
+            $(window).unbind("resize", getypos)
             $(window).unbind("scroll", parallax)
             obj.removeAttr("style")
             settings.onParallaxDestroy(obj);

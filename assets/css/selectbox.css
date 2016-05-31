@@ -38,7 +38,7 @@ h1{color:#fff; margin-top:0;}
 	text-decoration: none;
 }*/
 .sbToggle{
-	background: url(../images/icon/select-arrow.png) no-repeat;
+	background: url(../images/icon/select-arrow.svg) no-repeat;
 	display: block;
 	height: 8px;
 	outline: none;
@@ -154,8 +154,12 @@ cursor:pointer;
 position: absolute;
 margin-top: 8px;
 margin-left: 2px;
-
 }
+
+.landing-form input[type=checkbox].css-checkbox + label.css-label {
+    margin-top: 0;
+}
+
 .checkbox-custom p {
     float: left;
     width: 100%;
@@ -187,15 +191,20 @@ user-select: none;
 }
 
 
+@media (max-width: 1599px) { 
+input,.sbSelector { font-size: 14px;}
+}
 @media (max-width: 767px) { 
     
 .checkbox-custom p {
     font-size: 28px !important;
 }
+    .landing-form .checkbox-custom p {
+        font-size: initial !important;
+    }
 input[type=checkbox].css-checkbox + label.css-label {
     margin-top: 11px;
 }
-
 }
 
 @media (max-width: 680px) { 

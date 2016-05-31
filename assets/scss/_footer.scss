@@ -21,7 +21,7 @@ footer{
         h5 {
             font-size: $xxxsmall-text;
             color: $white-color;
-            margin-bottom: 20px;
+            margin-bottom: 6px;
         }
         
         .footer-top {
@@ -50,6 +50,12 @@ footer{
                     font-size: $xmedium-text;
                     padding-bottom: 30px;
                  }
+                @include media(max-width 480px) {
+                    font-size: $xsmall-text;
+                }
+                @include media(max-width 360px) {
+                    font-size: $xxxsmall-text;
+                }
                 
                 a {
                     color: $white-color;
@@ -174,9 +180,21 @@ footer{
                 
                 @include media(max-width 680px) {
                     font-size: $xmedium-text;
-                    line-height: 35px;
+                    line-height: 33px;
                     padding-bottom: 26px;
                  }
+                @include media(max-width 480px) {
+                    font-size: $small-text;
+                    line-height: 24px;
+                }
+                @include media(max-width 400px) {
+                    font-size: $xsmall-text;
+                    line-height: 30px;
+                }
+                @include media(max-width 360px) {
+                    font-size: $xxxsmall-text;
+                    line-height: 26px;
+                }
                 
                 a {
                     color: $white-color;
@@ -194,12 +212,16 @@ footer{
                 top: 0px;
                 width: 255px;
                 
+                @include media(max-width 991px) {
+                    right: 38px;
+                }
                 @include media(max-width 767px) {
                     position: relative;
                     float: $left;
                     width: 100%;
                     text-align: center;
                     margin-bottom: 89px;
+                    right: 0;
                  }
                 
                 span {
@@ -229,10 +251,16 @@ footer{
                         position: relative;
                         top: 3px;
                      }
+                    @include media(max-width 479px) {
+                        margin-left: 0;
+                    }
                     
                     li {
                         display: inline-block;
                         @include margin(0, 8px, 0, 8px);
+                        &:last-child {
+                            @include margin(0, 0, 0, 8px);                            
+                        }
                         
                         a {
                             display: inline-block;
@@ -240,44 +268,57 @@ footer{
                             .facebook {
                                 width: 18px;
                                 height: 18px;
-                                background: url("../images/icon/social-sprite.png") 0px -2px no-repeat;
-                                background-position: 0px -2px;
-                                
+//                                background: url("../images/icon/social-sprite.png") 0px -2px no-repeat;
+                                background: url("../images/svg-img/facebook-icon.svg");
+                                background-position: 0px 0;
+                                background-size: 100%;
                                 &:hover {
-                                    background-position: 0px -22px;
+                                    background: url("../images/svg-img/facebook-icon-hover.svg");
+                                    background-position: 0px 0;
+                                    background-size: 100%;
                                 }
                             }
                             
                             .twitter {
                                 width: 18px;
                                 height: 18px;
-                                background: url("../images/icon/social-sprite.png") -18px -2px no-repeat;
-                                background-position: -18px -2px;
-                                
+//                                background: url("../images/icon/social-sprite.png") -18px -2px no-repeat;
+                                background: url("../images/svg-img/tweeter-icon.svg");
+                                background-position: 0 0;
+                                background-size: 100%;                                
                                 &:hover {
-                                    background-position: -18px -22px;
+                                background: url("../images/svg-img/tweeter-icon-hover.svg");
+                                    background-position: 0px 0;
+                                    background-size: 100%;
                                 }
                             }
                             
                             .google {
                                 width: 19px;
                                 height: 20px;
-                                background: url("../images/icon/social-sprite.png") -36px 0px no-repeat;
-                                background-position: -36px 0px;
+                                background: url("../images/svg-img/google-plus-icon.svg") 0 0px no-repeat;
+                                background-position: 0 0px;
+                                background-size: 100%;
                                 
                                 &:hover {
-                                    background-position: -36px -20px;
+                                    background: url("../images/svg-img/google-plus-icon-hover.svg") 0 0px no-repeat;
+                                    background-position: 0 0;
+                                    background-size: 100%;
                                 }
                             }
                             
                             .youtube {
                                 width: 24px;
                                 height: 20px;
-                                background: url("../images/icon/social-sprite.png") -55px 0px no-repeat;
-                                background-position: -55px 0px;
+//                                background: url("../images/icon/social-sprite.png") -55px 0px no-repeat;
+                                background: url("../images/svg-img/youtube-video-icon.svg") 0 0px no-repeat;
+                                background-position: 0 0px;
+                                background-size: 100%;
                                 
                                 &:hover {
-                                    background-position: -55px -20px;
+                                    background: url("../images/svg-img/youtube-video-icon-hover.svg") 0 0px no-repeat;
+                                    background-position: 0px 0px;
+                                    background-size: 100%;
                                 }
                             }
                         }
@@ -481,5 +522,151 @@ footer{
             }
         }
         
+    }
+}
+
+.landing-footer {
+    &.container-block {
+        .footer-top {
+            border-bottom: none;
+            padding-bottom: 0;
+            p {
+                @include media(max-width 767px) {
+                    font-size: $small-text;
+                    padding-bottom: 20px;                    
+                }
+                @include media(max-width 480px) {
+                }
+            }
+        }        
+        .column-6 { 
+            @include media(max-width 767px) {
+                @include span-columns(12);
+            }
+        }
+        .footer-social-block {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 255px;
+
+            @include media(max-width 991px) {
+                right: 38px;
+            }
+            @include media(max-width 767px) {
+                position: relative;
+                float: none;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 42px;
+                right: 0;
+             }
+            span {
+                font-size: $xxxsmall-text;
+                color: $white-color;
+                float: $left;
+
+                @include media(max-width 767px) {
+                    display: inline-block;
+                    float: none;
+                    font-size: $xxxsmall-text;
+                 }
+            }
+
+            ul {
+                float: $left;
+                margin-left: $xs-small-text;
+
+                @include media(max-width 767px) {
+                    display: inline-block;
+                    float: none;
+                    margin-left: 20px;
+                    position: relative;
+                    top: 3px;
+                 }
+                @include media(max-width 479px) {
+                    margin-left: 0;
+                }
+
+                li {
+                    display: inline-block;
+                    @include margin(0, 0px, 0, 10px);
+                    &:first-child {
+                        @include margin(0, 0, 0, 10px);                            
+                    }
+                    &:last-child {
+                        @include margin(0, 0, 0, 14px);
+                    }
+
+                    a {
+                        display: inline-block;
+
+                        .facebook {
+                            width: 20px;
+                            height: 20px;
+        //                                background: url("../images/icon/social-sprite.png") 0px -2px no-repeat;
+                            background-image: url("../images/landing-logo/social/fb.svg");
+                            background-position: 0px 0;
+                            background-size: 100%;
+                            background-repeat: no-repeat;
+                            &:hover {
+                                background-image: url("../images/landing-logo/social/fb-hover.svg");
+                                background-position: 0px 0;
+                                background-size: 100%;
+                                background-repeat: no-repeat;
+                            }
+                        }
+
+                        .twitter {
+                            width: 20px;
+                            height: 20px;
+        //                                background: url("../images/icon/social-sprite.png") -18px -2px no-repeat;
+                            background-image: url("../images/landing-logo/social/twitter.svg");
+                            background-position: 0 0;
+                            background-size: 100%;
+                            background-repeat: no-repeat;
+                            &:hover {
+                            background-image: url("../images/landing-logo/social/twitter-hover.svg");
+                                background-position: 0px 0;
+                                background-size: 100%;
+                                background-repeat: no-repeat;
+                            }
+                        }
+
+                        .google {
+                            width: 20px;
+                            height: 20px;
+                            background-image: url("../images/landing-logo/social/g+.svg");
+                            background-position: 0 0px;
+                            background-size: 100%;
+                            background-repeat: no-repeat;
+                            &:hover {
+                                background-image: url("../images/landing-logo/social/g+-hover.svg");
+                                background-position: 0 0;
+                                background-size: 100%;
+                                background-repeat: no-repeat;
+                            }
+                        }
+
+                        .youtube {
+                            width: 26px;
+                            height: 20px;
+        //                                background: url("../images/icon/social-sprite.png") -55px 0px no-repeat;
+                            background-image: url("../images/svg-img/youtube-video-icon.svg");
+                            background-position: 0 0px;
+                            background-size: 100%;
+                            background-repeat: no-repeat;
+
+                            &:hover {
+                                background-image: url("../images/svg-img/youtube-video-icon-hover.svg");
+                                background-position: 0px 0px;
+                                background-size: 100%;
+                                background-repeat: no-repeat;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
