@@ -448,15 +448,19 @@ function arrowAnimate() {
 }
 
 function equalHeight() {
-    $('.middle-content-block').each(function () {
-        var highestBox = 0;
-        $('.column-6', this).each(function () {
-            $(this).css("height", "");
-            if ($(this).height() > highestBox)
-                highestBox = $(this).height();
+    if (window.innerWidth > 991) {
+        $('.middle-content-block').each(function () {
+            var highestBox = 0;
+            $('.column-6', this).each(function () {
+                $(this).css("height", "");
+                if ($(this).height() > highestBox)
+                    highestBox = $(this).height();
+            });
+            $('.column-6', this).height(highestBox);
         });
-        $('.column-6', this).height(highestBox);
-    });
+    }else {
+        $('.middle-content-block .column-6').css("height", "");
+    }
 }
 
 

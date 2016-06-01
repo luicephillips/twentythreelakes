@@ -36,9 +36,7 @@ header {
                     height: 48px;
                 }
                 
-                @include media(max-width 479px) {
-                    content: none;
-                }
+                
             }
             
             &:after {
@@ -60,9 +58,7 @@ header {
                     left: 65.66%;
                 }
                 
-                @include media(max-width 479px) {
-                    content: none;
-                }
+                
             }
             
             @include media(max-width 767px) {
@@ -86,15 +82,11 @@ header {
                     @include media(max-width 680px) {
                         width: 33.3%;
                         margin-right: 0;
-//                        @include pad(23px 5px 21px 5px);
                         @include pad(5px 0);
                     }
                     
                     @include media(max-width 479px) {
-                        @include pad(15px 0 15px 0);  
-                        width: 100%;
-//                        width: 33%;
-                        width: 100%;
+                        @include pad(5px 0 5px 0); 
                         margin-right: 0;
                         display: inline-block;
                         vertical-align: top;
@@ -122,9 +114,7 @@ header {
                             width: 33.33%;
                         }
                         
-                        @include media(max-width 479px) {
-                            width: 100%;
-                        }
+                        
                     }
                                             
                     &:nth-child(2) {
@@ -135,11 +125,8 @@ header {
                         
                         @include media(max-width 680px) {
                             width: 33.33%;
-                        }
+                        }                        
                         
-                        @include media(max-width 479px) {
-                            width: 100%;
-                        }
                     }
                     
                     
@@ -154,6 +141,10 @@ header {
                         span {
                             display: table-cell;
                             vertical-align: middle;
+                            
+                            @include media(max-width 479px) {
+                                @include pad(0 3px 0 3px);
+                            }
                         }
                         
                         @include media(max-width 991px) {
@@ -169,7 +160,6 @@ header {
                         
                         @include media(max-width 680px) {
                                 width: 100%;
-//                                font-size: $s-small-text;
                                 height: 54px;
                                 font-size: 12px;
                                 letter-spacing: 0.2px;
@@ -177,39 +167,14 @@ header {
                         }
                         
                         @include media(max-width 479px) {
-                            height: auto;
+                            height: 64px;
+                            font-size: $xxs-small-text;
                         }
                         
                         &:hover {
                             opacity: 0.8;
                         }
                     }
-//                    &:last-child
-//                    {
-//                        &:after {
-//                            display: none;
-//                        }
-//                    }
-//                    &:after {
-//                        content: "";
-//                        width: 1px;
-//                        height: 40px;
-//                        background: $divider-line;
-//                        position: absolute;
-//                        right: 0;
-//                        bottom: 14px;
-//                            @include media(max-width 767px) {
-//                                height: 70px;
-//                            }
-//
-//                            @include media(max-width 680px) {
-//                                bottom: 10px;
-//                            }
-//
-//                            @include media(max-width 479px) {
-//                                content: none;
-//                            }
-//                    }
                 }
             }
         }
@@ -218,7 +183,6 @@ header {
             width: 100%;
             float: $left;
             position: relative;
-//            background: $light-white-color;
             background: $light-white-color;
             z-index: 9;
             
@@ -425,10 +389,7 @@ header {
                     
                     span {
                         position: absolute;
-                        top: -5px;
-//                        left: 50%;
-//                        @include translareX;
-                        
+                        top: -5px;                        
                         left: 0;
                         right: 0;
                         margin: auto;
@@ -642,13 +603,17 @@ header {
     #header-main {
         
         .top-bar {
-            opacity: 1;
+            opacity: 0;
             @include transition-opacity;
             
             @include media(max-width 767px) {
                 opacity: 0;
                 text-align: center;
                 padding: 0 8px;
+            }
+            
+            @include media(max-width 479px) {
+                padding: 0 3px;
             }
         }
         
