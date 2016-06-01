@@ -31,8 +31,9 @@ header {
                 }
                 
                 @include media(max-width 680px) {
-                    left: 33.33%;
-                    bottom: 10px;
+                    left: 34.33%;
+                    bottom: 7px;
+                    height: 48px;
                 }
                 
                 @include media(max-width 479px) {
@@ -54,7 +55,9 @@ header {
                 }
                 
                 @include media(max-width 680px) {
-                    bottom: 10px;
+                    bottom: 7px;
+                    height: 48px;
+                    left: 65.66%;
                 }
                 
                 @include media(max-width 479px) {
@@ -64,9 +67,6 @@ header {
             
             @include media(max-width 767px) {
                 opacity: 0;
-            }
-            @include media(max-width 640px) {
-                
             }
             
             ul {
@@ -146,7 +146,7 @@ header {
                     a {
                         color: $white-color;
                         text-transform: uppercase;
-                        @include transition-effect; 
+                        @include transition-none;
                         letter-spacing: 1.2px;   
                         display: table;
                         @include margin(0, auto, 0, auto);
@@ -170,18 +170,18 @@ header {
                         @include media(max-width 680px) {
                                 width: 100%;
 //                                font-size: $s-small-text;
-                                min-height: 54px;
+                                height: 54px;
                                 font-size: 12px;
                                 letter-spacing: 0.2px;
                                 @include pad(0 5px 0 5px);
                         }
                         
                         @include media(max-width 479px) {
-                            min-height: 1px;
+                            height: auto;
                         }
                         
                         &:hover {
-                            color: $light-red-color;
+                            opacity: 0.8;
                         }
                     }
 //                    &:last-child
@@ -219,7 +219,7 @@ header {
             float: $left;
             position: relative;
 //            background: $light-white-color;
-            background: $prtner-logo-bg;
+            background: $light-white-color;
             z-index: 9;
             
             @include media(max-width 767px) {
@@ -233,6 +233,7 @@ header {
                    position: absolute;
                    top: 50%;
                    @include translareY;
+                    @include span-columns(4);
                     
                     a {                        
                         
@@ -450,7 +451,7 @@ header {
                     }
                     
                     &:hover {
-                        background: $drk-light-green;
+                        background: $light-green;
                     }
                 }
             }
@@ -837,3 +838,87 @@ header {
         }
     }
 }
+
+.get-started-active {
+    
+    .top-bar {
+        background: $red-color !important;
+        
+        &:before {
+            background: $white-color;
+            opacity: 0.4;
+        }
+        
+        &:after {
+            background: $white-color;
+            opacity: 0.4;
+        }
+        
+        ul {
+            
+            li {
+                
+                a {
+                    
+                    span {
+                         position: relative;
+                        
+                        &:after {
+                            width: 100%;
+                            @include margin(0, auto, 0, auto);
+                            background: $white-color;
+                            height: 1px;
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            bottom: -2px;
+                            opacity: 0.5;
+                            
+                            @include media(max-width 767px) {
+                                width: 64%;
+                                left: 50%;
+                                @include translareX;
+                            }
+                            
+                            @include media(max-width 680px) {
+                                bottom: 7px;
+                            }
+                            
+                            @include media(max-width 479px) {
+                                content: none;
+                            }
+                        }
+                    }                    
+                }
+            }
+        }
+    }
+    
+    .header-part {
+        
+        .get-started-btn {
+            background: $red-color;
+            
+            a {
+                
+                img {
+                    display: none;
+                }
+            }
+            
+            &:hover {
+                background: $red-color !important;
+            }
+        }
+        
+        .get-load {
+            
+            a {
+                img {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+

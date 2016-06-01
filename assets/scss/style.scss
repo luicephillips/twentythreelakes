@@ -80,24 +80,32 @@ body {margin: 0; padding: 0; font-size:14px;color:#888a8d;
     padding-top: 68px;
 }
     
+@include media(max-width 767px) {
+    padding-top: 100px;
+}
+    
 @include media(max-width 680px) {
-    padding-top: 88px;
+    padding-top: 62px;
 }
     
 @include media(max-width 479px) {
-    padding-top: 147px;
+    padding-top: 138px;
 }
-    &.wrapper-landing {
+    &.wrapper-landing {        
+        padding-top: 0;
+        
         @include media(max-width 680px) {
-            padding-top: 83px;
+//            padding-top: 83px;
+            padding-top: 0;
         }
         @include media(max-width 479px) {
-            padding-top: 117px;
+//            padding-top: 117px;
+            padding-top: 0;
         }
         header {
             #header-main {                
                 .header-part {
-                    background: $inner-page-color;
+                    background: $light-white-color;
                 }
             }
         }
@@ -174,7 +182,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     }  
     
     @include media(max-width 1199px) {
-       width: 970px;
+       width: 960px;
     } 
     
     @include media(max-width 991px) {
@@ -213,10 +221,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     bottom: 0;
     background: $black-rgba;
     width: 100%;
-    -webkit-transition: background 0.2s ease 0s;
-    -moz-transition: background 0.2s ease 0s;
-    -ms-transition: background 0.2s ease 0s;
-    transition: background 0.2s ease 0s;
+    @include transition-background;
 }
 
 
@@ -227,24 +232,24 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
 .banner-main-block {
     width: 100%;
     float: $left;
-    height: 1044px;
+    min-height: 1044px;
     position: relative;
     overflow: hidden;
     
     @include media(max-width 1199px) {
-       height: 774px;
+       min-height: 774px;
     } 
     
     @include media(max-width 991px) {
-       height: 654px;
+       min-height: 654px;
     } 
     
     @include media(max-width 680px) {
-       height: 424px;
+       min-height: 424px;
     } 
     
     @include media(max-width 479px) {
-       height: 424px;
+       min-height: 424px;
     } 
     
     &:after {
@@ -398,7 +403,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                 } 
                 
                 @include media(max-width 479px) {
-                    bottom: 10px;
+                    bottom: 20px;
                 } 
                 
                 p {
@@ -413,6 +418,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                     
                     @include media(max-width 991px) {
                         padding-left: 42px;
+                    }
+                    
+                    @include media(max-width 767px) {
+                        padding-left: 35px;
                     }
                     
                     &:before {
@@ -430,6 +439,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                         
                         @include media(max-width 991px) {
                             left: 10px;
+                        }
+                        
+                        @include media(max-width 767px) {
+                            left: 0;
                         }
                     }
                     
@@ -574,12 +587,12 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     
     @include media(max-width 767px) {
        @include pad(70px 0 65px 0);
-        background-position: -890px 0 !important;
+        background-position: 36% 0 !important;
     }
     
     @include media(max-width 680px) {
        @include pad(55px 0 55px 0);
-        background-position: -390px 0 !important;
+        background-position: 35% 0 !important;
     }
     
     .container-block {
@@ -648,6 +661,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         
         @include media(max-width 767px) {
            @include margin(19px, 26px, 5px, 0);
+            @include pad(13px 27px 13px 23px);
         }
 
         &:hover {
@@ -753,6 +767,11 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
             line-height: 29px;
             margin-top: 38px;
             letter-spacing: 0.7px;
+            padding-bottom: 0;
+            
+            @include media(max-width 767px) {
+                @include pad(0 0 25px 0);
+            }
         }
     }    
 }
@@ -777,7 +796,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     }
     
     @include media(max-width 1024px) {
-       background-position: -500px 0 !important;
+       background-position: 20% 0 !important;
         @include pad(86px 0 74px 0);
     }
     
@@ -875,6 +894,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
         
         @include media(max-width 767px) {
            @include margin(10px, 26px, 5px, 0);
+            @include pad(13px 28px 13px 28px);
         }
         
         @include media(max-width 680px) {
@@ -1011,11 +1031,11 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     
     @include media(max-width 680px) {
        @include pad(55px 0 55px 0);
-        background-position: -1210px 0 !important;
+        background-position: 48% 0 !important;
     }
     
     @include media(max-width 479px) {
-        background-position: -1230px 0 !important;
+        background-position: 50% 0 !important;
     }
     
     .container-block {
@@ -1428,7 +1448,11 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     
     &.about_banner {
         background: url(../images/bg-img/call-action2-inner.jpg) center center no-repeat;
-   
+       background-size: cover;
+        
+        @include media(max-width 1599px) {
+            background-position: 60% 0;
+        }
        
     }
     @include media(max-width 1599px) {
@@ -1443,6 +1467,14 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
             background-position: center 0 !important;
             background-size: cover;
             height: 480px;
+        }
+         
+         @include media(max-width 767px) {
+            background-position: center 60px !important;            
+        }
+         
+         @include media(max-width 680px) {
+            background-position: center 0 !important;            
         }
     }
     @include media(max-width 1024px) {
@@ -1502,6 +1534,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                     font-size: $xxlarge-text;
                     font-weight: $normal;
                     line-height: 84px;
+                    margin-bottom: 22px;
                 }
                 
                 @include media(max-width 680px) {
@@ -1665,10 +1698,18 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                     
                     .column-6 {
                         
+                        @include media(max-width 479px) {
+                            @include span-columns(12);
+                         }
+                        
                         &:first-child {
                             
                             input {
                                 width: 95%;
+                                
+                                @include media(max-width 479px) {
+                                    width: 100%;
+                                 }
                             }
                         }
                     }
@@ -2381,9 +2422,19 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
 
 .blog-banner {
     background: url(../images/bg-img/blog-listing.jpg) center center no-repeat;
+    background-size: cover;
+    
+     @include media(max-width 1599px) {
+        background-position: 80% 0;
+    }
 }
 .landing_banner {
-    background: url(../images/bg-img/landing-page.jpg) center center no-repeat;
+    background: url(../images/bg-img/blog-listing.jpg) center center no-repeat;
+    background-size: cover;
+    
+    @include media(max-width 1599px) {
+        background-position: 80% 0;
+    }
 }
 
 .blog-block {
@@ -2789,6 +2840,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
                         @include border-radius;
                         
                         @include media(max-width 767px) {
+                            top: 15px;
+                         }
+                        
+                        @include media(max-width 680px) {
                             top: 10px;
                          }
                     }
@@ -2962,7 +3017,7 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
     }
     
     @include media(max-width 680px) {
-        background-position: -1400px 0 !important;
+        background-position: 38% 0 !important;
     }
     
     @include media(max-width 479px) {
@@ -3535,6 +3590,10 @@ textarea.texareabox:-ms-input-placeholder {color:#888a8d;}
 
 h2 {
     
+    @include media(max-width 767px) {
+        font-weight: $normal !important;
+    }
+    
     @include media(max-width 680px) {
         font-size: $medium-text !important;
         line-height: 32px !important;
@@ -3623,7 +3682,7 @@ h2 {
                             @include pad(32px 0 48px 0);
                         }
                         
-                        @include media(max-width 480px) {
+                        @include media(max-width 479px) {
                             @include pad(27px 0 48px 0);
                         }
                         
@@ -3655,6 +3714,7 @@ h2 {
             width: 100%;
             position: absolute;
             top: 0;
+            background-size: cover;
         }
     }
     
@@ -3664,7 +3724,8 @@ h2 {
             height: 100%;
             width: 100%;
             position: absolute;
-            top: 0;
+            top: 0;       
+            background-size: cover;
         }
     }
     
@@ -3721,14 +3782,14 @@ h2 {
             border-bottom: 1px solid #dfe0e1;
             clear: both;
             display: block;
-            background-image: url(../images/quote.png);
+            background-image: url(../images/quote.svg);
             background-repeat: no-repeat;
             background-position: 35px 40px;
             @include media(max-width 1199px) {
                 background-position: 17px 33px;
                 padding: 35px 32px 30px 80px;
             }
-            @include media(max-width 480px) {
+            @include media(max-width 479px) {
                 background-position: 7px 13px;
                 padding: 45px 10px 30px 2%;
             }
@@ -3736,7 +3797,7 @@ h2 {
             font-size: $xmedium-text;
             line-height: 35px;
             color: $submit-btn-color;
-            @include media(max-width 480px) {
+            @include media(max-width 479px) {
                 font-size: 16px;
                 line-height: 24px;
             }
@@ -3752,7 +3813,7 @@ h2 {
 .landing-form-right {
     .about-right-block {
         @include pad(27px 27px 11px 27px);
-        @include media(max-width 480px) {
+        @include media(max-width 479px) {
             @include pad(15px 15px 17px 15px);            
         }
         h4 {
@@ -3775,9 +3836,15 @@ h2 {
     .state {
         .sbHolder {
             height: 47px;
+            @include media(max-width 1599px) {
+                height: 44px;
+            }
         }
         .sbSelector {
             line-height: 47px;
+            @include media(max-width 1599px) {
+                line-height: 44px;
+            }
         }
     }
     input {
@@ -3791,16 +3858,16 @@ h2 {
     }
     .sbHolder { height: 46px;}
     .date {
-        background-image: url(../images/calender.png);
+        background-image: url(../images/calender.svg);
         background-repeat: no-repeat;
         background-position: 96% center;
         @include media(max-width 991px) {
             background-position: 98% center;            
         }
-        @include media(max-width 640px) {
+        @include media(max-width 680px) {
             background-position: 97% center;
         }
-        @include media(max-width 480px) {
+        @include media(max-width 479px) {
             background-position: 96% center;            
         }
     }
@@ -3831,10 +3898,10 @@ h2 {
             top: 50%;
             background: url(../images/icon/lock-icon.svg) center center no-repeat;
             @include translareY;
-            @include media(max-width 480px) {
+            @include media(max-width 479px) {
                 left: 18px;
             }
-            @include media(max-width 480px) {
+            @include media(max-width 479px) {
                 left: 10px;
             }
         }
@@ -3847,7 +3914,7 @@ h2 {
         @include pad(18px 33px 18px 57px);
         text-transform: uppercase;    
         margin-bottom: 0;
-        @include media(max-width 480px) {
+        @include media(max-width 479px) {
             @include pad(20px 0 18px 20px);
         }
         @include media(max-width 360px) {
@@ -3943,7 +4010,7 @@ h2 {
                         padding: 0;
                     }
                 }
-                @include media(max-width 640px) {
+                @include media(max-width 680px) {
                     width: 50%;
                 }
             }

@@ -154,10 +154,12 @@ cursor:pointer;
 position: absolute;
 margin-top: 8px;
 margin-left: 2px;
+left: 0;
 }
 
 .landing-form input[type=checkbox].css-checkbox + label.css-label {
     margin-top: 0;
+    left: 27px;
 }
 
 .checkbox-custom p {
@@ -199,19 +201,34 @@ input,.sbSelector { font-size: 14px;}
 .checkbox-custom p {
     font-size: 28px !important;
 }
-    .landing-form .checkbox-custom p {
-        font-size: initial !important;
-    }
+.landing-form .checkbox-custom p {
+    font-size: initial !important;
+}
 input[type=checkbox].css-checkbox + label.css-label {
     margin-top: 11px;
 }
 }
 
-@media (max-width: 680px) { 
-    
+@media (max-width: 680px) {
+
+.landing-form .checkbox-custom p {
+    font-size: 16px !important;
+}
 .checkbox-custom p {
     font-size: 18px !important;
 }
     
 }
-
+@media (max-width: 479px) {
+    .landing-form .checkbox-custom p {
+        font-size: 14px !important;
+        line-height: 25px;
+    }
+    .landing-form .sbSelector {
+        padding: 0 30px 0 0;
+    }
+    .landing-form input[type=checkbox].css-checkbox + label.css-label {
+        margin-top: 5px;
+        left: 15px;
+    }
+}

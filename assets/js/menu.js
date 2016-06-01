@@ -171,7 +171,13 @@
                     closeMobileMenu(menuobj);
                 } else {
                     if(defaultMenu){
-                        $(this).next().slideDown();
+                        $(this).next().slideDown(function(){
+                            var height_ = $(".header-part").height()
+                            if(!$("body").hasClass("stickyHeader")){
+                                height_ = height_ + $(".top-bar").height()
+                            }
+                            menuobj.css("height", $(window).height() - height_);
+                        });
                     }
                     $(this).addClass("active");
                     $("body").addClass("menu-open");
@@ -183,6 +189,16 @@
                         closeMobileMenu(menuobj);
                     }
                 }
+            });
+            
+            $(window).resize(function(){
+               if($("body").hasClass("menu-open")) {
+                    var height_ = $(".header-part").height()
+                    if(!$("body").hasClass("stickyHeader")){
+                        height_ = height_ + $(".top-bar").height()
+                    }
+                    menuobj.css("height", $(window).height() - height_);
+               }
             });
 
             function closeMobileMenu(menuobj) {

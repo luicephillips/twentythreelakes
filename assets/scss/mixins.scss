@@ -21,6 +21,20 @@
     transition: height 0.4s ease 0s;
 }
 
+@mixin transition-background {
+   -webkit-transition: background 0.2s ease 0s;
+    -moz-transition: background 0.2s ease 0s;
+    -ms-transition: background 0.2s ease 0s;
+    transition: background 0.2s ease 0s;
+}
+
+@mixin transition-none {
+   -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    transition: none;
+}
+
 
 
 /* Margin */
@@ -62,10 +76,10 @@
 }
 
 @mixin trans-orignl {
-    -webkit-transform-origin: 0 0;
-    -moz-transform-origin: 0 0;
-    -ms-transform-origin: 0 0;
-    transform-origin: 0 0;
+    -webkit-transform-origin: 12px 0 0;
+    -moz-transform-origin: 12px 0 0;
+    -ms-transform-origin: 12px 0 0;
+    transform-origin: 12px 0 0;
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     -ms-transform: scale(0);

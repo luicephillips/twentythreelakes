@@ -17,9 +17,18 @@ jQuery(document).ready(function () {
         'menuIcon_text': '',
         onMenuopen: function () {}
     });
+    
+    $(".banner-main-block").css("height", $(window).height() - parseInt($(".wrapper").css('padding-top')));
+    
+    $(".get-started-btn > a").bind("click", function(e){
+        e.preventDefault();
+        $("#header-main").addClass("get-started-active");
+        setTimeout(function(){
+            $("#header-main").removeClass("get-started-active");
+        }, 5000)
+    });
 
     /* Accordian js */
-    //$("#top-accordian").accordion({ firstactive:false });
     $("#top-accordian .accordion-title").bind("click", function (event) {
         event.preventDefault();
         if (!$(this).next().is(':visible')) {
@@ -245,7 +254,41 @@ jQuery(document).ready(function () {
                 duration: 400
             });
         }
+        
+        var container2 = $(".foot-btm-right")
+        if (!container2.is(e.target) && container2.has(e.target).length === 0 && container2.find(".glob-toggle").hasClass("open")) {
+            container2.find(".glob-toggle").removeClass("open");
+            container2.find("ul").velocity("slideUp", {
+                duration: 400
+            });
+        }
     });
+    
+    
+    $(".glob-toggle").on("click", function (e) {
+        e.preventDefault();
+        if ($(this).hasClass("open")) {
+            $(this).removeClass("open");
+            $(".footer-toggle").velocity("slideUp", {
+                duration: 400
+            });
+        } else {
+            $(this).addClass("open");
+            $(".footer-toggle").velocity("slideDown", {
+                duration: 400
+            });
+        }
+    });
+    
+    $(".footer-toggle a").on("click", function (e) {
+        e.preventDefault();
+        $(".glob-toggle").removeClass("open")
+        $(this).closest("ul").velocity("slideUp", {
+            duration: 400
+        });
+    });
+    
+    
     // paragraph word after other
     //    var $el = $(".banner-text-last p:first"), text = $.trim($el.text()),
     //        words = text.split(" "), html = "";
@@ -313,6 +356,9 @@ $(window).load(function () {
 
 });
 $(window).resize(function () {
+    
+    $(".banner-main-block").css("height", $(window).height() - parseInt($(".wrapper").css('padding-top')));
+    
     stickyHeader();
 
     arrowAnimate();
@@ -396,6 +442,7 @@ function arrowAnimate() {
             $(".get-load  img").velocity({
                 scale: scalVal
             }, 0);
+            
         }
     }
 }
@@ -439,24 +486,36 @@ function equalHeight() {
                 if ($this.hasClass("left")) {
                     $this.css({"background-position": (result - 500) + "px 0"});
                 } else if ($this.hasClass("right")) {
-                    $this.css({"background-position": -(result + 350) + "px 0"});
+                    $this.css({"background-position": -(result + 650) + "px 0"});
                 } else if ($this.hasClass("up")) {
                     $this.css({"background-position": p[i][0]+"% " + result + "px"});
                 }
+                
                 if (scroll > (objOffset - (windowHeight / 2))) {
                     var gray_ = (((scroll - (objOffset + windowHeight)) / (objOffset + windowHeight)) * 0.7) + 0.7;
                     $this.find(".overlay-bg").css('background-color', 'rgba(79,80,84,' + gray_ + ')');
+                    
                 } else {
                     $this.find(".overlay-bg").css('background-color', 'rgba(0,0,0,0)');
+                }                
+                var opacity_ = (((scroll - objOffset + windowHeight/2) / objOffset) * 1) + 1;
+                var opacity2_ = (((scroll - objOffset - windowHeight/2) / objOffset) * 1) + 1;
+                if (scroll > (objOffset - (windowHeight / 2))) {
+                    $this.find(".incp-content").css("opacity", opacity_)
+                }else{
+                    $this.find(".incp-content").css("opacity", opacity2_)
                 }
+                
             })
         }
         var getypos = function (){
-            obj.removeAttr("style")
+            //obj.removeAttr("style")
             p = [],
             obj.each(function(i) {
+                if($(this).hasClass("up")){
+                   $(this).css("background-position", "");
+                }
                 p.push($(this).css("background-position"));
-                console.log($(this) ,$(this).css("background-position"))
             })
             for (var i = 0; i < p.length; i++) {
                 p[i] = p[i].split(" ")
@@ -466,7 +525,6 @@ function equalHeight() {
                     p[i][j] = parseFloat(p[i][j].replace(/px/g,""))
                 }
             }
-            console.log(p)
         }
         var init = function () {
             getypos();
