@@ -1,0 +1,21 @@
+label: Sections
+type: structure
+fields:
+  type:
+    label: Type
+    type: select
+    options:
+      top: Top text section
+      wide: Wide text section
+      cta: Call-to-action      
+    width: 1/2
+  id:
+    label: ID
+    type: text
+    width: 1/2
+  text: maintext
+  classes:
+    label: Classes
+    type: tags
+    index: all
+modalsize: large

@@ -1,10 +1,9 @@
-title: Page
-pages: true
+title: Homepage
+pages: false
 files: true
-fields:
+fields:  
   tabContent: tabContent
   title: title
-  menu_title: menu_title
   sections: sections
   tabSEO: tabSEO
   title_tag: title_tag

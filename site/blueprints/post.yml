@@ -1,0 +1,19 @@
+title: Blog post
+pages: false
+files: true
+fields:
+  tabContent: tabContent
+  title: title
+  text: maintext
+  categories:
+    label: Categories
+    type: tags
+    index: all
+  tags:
+    label: Tags
+    type: tags
+    index: all
+  tabSEO: tabSEO
+  title_tag: title_tag
+  description: description
+  keywords: keywords

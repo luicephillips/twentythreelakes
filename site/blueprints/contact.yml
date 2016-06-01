@@ -1,11 +1,11 @@
-title: Page
-pages: true
+title: Contact page
+pages: false
 files: true
 fields:
   tabContent: tabContent
   title: title
   menu_title: menu_title
-  sections: sections
+  text: maintext
   tabSEO: tabSEO
   title_tag: title_tag
   description: description
