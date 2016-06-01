@@ -1,0 +1,8 @@
+.DS_Store
+/site/accounts/*
+/assets/avatars/*
+/site/cache/*
+/thumbs/*
+/assets/.sass-cache/*
+/site/config/config.*.php
+!*.gitkeep
