@@ -1,1 +1,126 @@
 Title: Home
+
+----
+
+Sections: 
+
+- 
+  type: hero
+  section_id: ""
+  header: Main header will be here.
+  text: '<p>Helping create families throught understanding and sensitivity.</p>(link: # text: LEARN MORE title: Learn More class: button)(link: # text: GET STARTED title: Get Started class: button)'
+  extrapadding: "0"
+  nocontainerblock: "0"
+  classes: banner-main-block,banner-pad
+- 
+  type: wide
+  section_id: ""
+  header: ""
+  text: |
+    (image: small-logo.svg width: 105 height: 100 alt: Logo title: Logo)
+    
+    Non adipiscing pretium consectetur hac hac a nisi pharetra habitant dui faucibus phasellus lacus magna quisque amet leo leo penatibus nib id nisl sit malesuada convallis tristique.
+    
+    (info-block: Header One image: img-1.jpg class: drk-red)(info-block: Header Two image: img-2.jpg class: drk-green)(info-block: Header Three image: img-3.jpg class: yello-bg)
+  extrapadding: "0"
+  classes: info-section
+- 
+  type: cta
+  section_id: ""
+  header: '<strong>Family Inceptions International’s mission</strong> is to inspire life, create life and assist others to help give life.'
+  text: '(link: # text: <img src="/assets/images/icon/polygon-icon-light.svg" width="10" height="19" alt="PLAY VIDEO" title="PLAY VIDEO" />Play Video class: button)'
+  extrapadding: "0"
+  classes: family-incp-section,parallax,left
+  nocontainerblock: "0"
+- 
+  type: wide
+  section_id: ""
+  header: ""
+  text: |
+    (video-popup: # title: Video Header One text: Mus a habitasse convallis mus a dui a faucibus a integer felis quis mus nec mi eleifend luctus ut parturient montes a quis.)
+    (video-popup: # title: Video Header Two text: Mus a habitasse convallis mus a dui a faucibus a integer felis quis mus nec mi eleifend luctus ut parturient montes a quis.)
+  extrapadding: "0"
+  nocontainerblock: "0"
+  classes: video-header-sec
+- 
+  type: cta
+  section_id: ""
+  header: Call to action block header one
+  text: |
+    Mus a habitasse convallis mus a dui a faucibus a integer felis quis mus nec mi eleifend luctus ut parturient montes a quis. Arcu suspendisse euismod ad eros tincidunt ut consequat nam sapien dis ultrices dictum donec adipiscing a nam erat. A venenatis a fringilla ipsum id mollis a potenti hendrerit in aliquet dolor nunc vel porttitor dui.
+    
+    (link: # text: CTA Button One title: CTA Button One class: button)
+  extrapadding: "0"
+  classes: >
+    call-action-section,cas-sec1,parallax,right
+- 
+  type: wide
+  section_id: ""
+  header: ""
+  text: |
+    Eget est vestibulum a proin integer aenean suspendisse curabitur fringilla ullamcorper  vestibulum nullam platea accumsan at nisi ante a a.
+    
+    (snippet: language-select)
+  extrapadding: "0"
+  nocontainerblock: "0"
+  classes: Choose-lng-section
+- 
+  type: cta
+  section_id: ""
+  header: Call to action block header two
+  text: |
+    Mus a habitasse convallis mus a dui a faucibus a integer felis quis mus nec mi eleifend luctus ut parturient montes a quis. Arcu suspendisse euismod ad eros tincidunt ut consequat nam sapien dis ultrices dictum donec adipiscing a nam erat. A venenatis a fringilla ipsum id mollis a potenti hendrerit in aliquet dolor nunc vel porttitor dui.
+    
+    (link: # text: CTA Button Two title: CTA Button Two class: button)
+  extrapadding: "0"
+  classes: call-too-section,parallax,left
+- 
+  type: wide
+  section_id: ""
+  header: ""
+  text: |
+    - (image: fda.png link: # popup: yes alt: FDA title: FDA)
+    - (image: seeds.png link: # popup: yes alt: SEEDS title: SEEDS)
+    - (image: department-health.png link: # popup: yes alt: Department of Health title: Department of Health)
+    - (image: fertility-colored.png link: # popup: yes alt: Fertility Colored Girls title: Fertility Colored Girls)
+    - (image: bbb.png link: # popup: yes alt: BBB title: BBB)
+  extrapadding: "0"
+  classes: partner-logo-section
+  nocontainerblock: "1"
+- 
+  type: cta
+  section_id: ""
+  header: Call to action block header three
+  text: |
+    Mus a habitasse convallis mus a dui a faucibus a integer felis quis mus nec mi eleifend luctus ut parturient montes a quis. Arcu suspendisse euismod ad eros tincidunt ut consequat nam sapien dis ultrices dictum donec adipiscing a nam erat. A venenatis a fringilla ipsum id mollis a potenti hendrerit in aliquet dolor nunc vel porttitor dui.
+    
+    (link: # text: CTA Button Three title: CTA Button Three class: button)(link: # text: CTA Button Four title: CTA Button Four class: button)
+  extrapadding: "0"
+  classes: >
+    call-action-section,call-thr-section,cas-sec2,parallax,right
+- 
+  type: wide
+  section_id: ""
+  header: ""
+  text: |
+    <div class="blog-head">
+    (image: small-logo.svg width: 70 height: 70 alt: Logo title: Logo)
+    <h2>From our Blog</h2>
+    </div>
+    
+    (snippet: blog-feed)
+  extrapadding: "0"
+  nocontainerblock: "0"
+  classes: blog-man-section
+
+----
+
+Title-tag: 
+
+----
+
+Description: 
+
+----
+
+Keywords: 

@@ -1,18 +1,38 @@
 title: Blog post
 pages: false
-files: true
+files:
+  fields:
+    alt:
+      label: Alt tag
+      type: text
 fields:
   tabContent: tabContent
   title: title
+  date:
+    label: Date posted
+    type: date
+    default: today
+  author:
+    label: Author
+    type: tags
+    index: template
+  featured:
+    label: Featured image
+    type: selector
+    mode:  single
+    autoselect: first
+    size: 3
+    types:
+        - image
   text: maintext
   categories:
     label: Categories
     type: tags
-    index: all
+    index: template
   tags:
     label: Tags
     type: tags
-    index: all
+    index: template
   tabSEO: tabSEO
   title_tag: title_tag
   description: description

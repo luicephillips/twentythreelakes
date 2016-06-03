@@ -8,8 +8,8 @@
                         </div>
                         <div class="footer-center">
                             <div class="column-3">
-                                <h5><img src="assets/images/svg-img/footer-small-logo.svg" width="20" height="19" alt="Family Inceptions International" title="Family Inceptions International">Family Inceptions International</h5>
-                                <a href="index.html" title="Family Inceptions International"><img class="footer-logo" src="assets/images/footer-logo.svg" width="370" height="160" alt="Family Inceptions International" title="Family Inceptions International" /></a>
+                                <h5><img src="<?= url('assets/images/svg-img/footer-small-logo.svg') ?>" width="20" height="19" alt="Family Inceptions International" title="Family Inceptions International">Family Inceptions International</h5>
+                                <a href="index.html" title="Family Inceptions International"><img class="footer-logo" src="<?= url('assets/images/footer-logo.svg') ?>" width="370" height="160" alt="Family Inceptions International" title="Family Inceptions International" /></a>
                                 <p>3295 River Exchange Drive, Suite 590 <br>Norcross, GA 30092 (Driving Directions)</p>
                                 <p>
                                     Toll Free: <a href="tel:844404" title="Call Us">844-404-BABY</a><br>
@@ -101,7 +101,7 @@
                                 <p>&copy; Copyright Family Inceptions International 2016</p>
                             </div>
                             <div class="foot-btm-right">
-                                <p><a href="#" class="glob-toggle" title="International Families"><span>International Families</span><img src="assets/images/svg-img/glob-icon.svg" width="24" height="24" title="Glob" alt="Glob" /> <img src="assets/images/icon/down-arrow.svg" width="11" height="6" title="Down Arrow" alt="Down Arrow" /></a></p>
+                                <p><a href="#" class="glob-toggle" title="International Families"><span>International Families</span><img src="<?= url('assets/images/svg-img/glob-icon.svg') ?>" width="24" height="24" title="Glob" alt="Glob" /> <img src="<?= url('assets/images/icon/down-arrow.svg') ?>" width="11" height="6" title="Down Arrow" alt="Down Arrow" /></a></p>
                                 <ul class="footer-toggle">
                                    <li><a href="#" title="Spanish">Lorem</a></li>
                                    <li><a href="#" title="French">Ipsum</a></li>
@@ -120,15 +120,19 @@
      <!-- image preloads ends here-->
     <!--footer ends here-->
     <!--scripts starts here--> 
-    <!--common jquery starts-->    
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/menu.js"></script>
-    <script src="assets/js/jquery.validate.js"></script>
-    <script src="assets/js/jquery.selectbox-0.2.js"></script>
-    <script src="assets/js/accordion.js"></script>
-    <script src="assets/js/css_browser_selector.min.js"></script>    
-    <script src="assets/js/velocity.min.js"></script>   
-    <script src="assets/js/general.js"></script>
+    <!--common jquery starts-->
+    <? $js = [
+        'assets/js/jquery.min.js',
+        'assets/js/menu.js',
+        'assets/js/jquery.validate.js',
+        'assets/js/jquery.selectbox-0.2.js',
+        'assets/js/accordion.js',
+        'assets/js/css_browser_selector.min.js',
+        'assets/js/velocity.min.js',
+        'assets/js/general.js'
+    ] ?>
+
+    <?= js($js) ?>
     <!--common jquery end-->    
     <!--scripts ends here--> 
 </body>

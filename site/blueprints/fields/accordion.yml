@@ -1,0 +1,12 @@
+label: Accordions
+type: structure
+entry: {{header}}<br />{{filter}}
+fields:
+  header:
+  	label: Header
+  	type: text
+  text: maintext
+  filter:
+    label: Filter
+    type: tags
+    index: self

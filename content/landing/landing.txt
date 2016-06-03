@@ -1,0 +1,59 @@
+Tabcontent: 
+
+----
+
+Title: Landing
+
+----
+
+Text: 
+
+----
+
+Tabseo: 
+
+----
+
+Title-tag: 
+
+----
+
+Description: 
+
+----
+
+Keywords: 
+
+----
+
+Sections: 
+
+- 
+  type: hero
+  section_id: ""
+  header: 'Landing Page<br />Header'
+  text: ""
+  extrapadding: "0"
+  classes: >
+    banner-innerpage-block,landing_banner,parallax,up,banner-pad
+- 
+  type: top
+  section_id: ""
+  header: Seminar Overview
+  text: |
+    Dr. Pei-Li Huang will be hosting a free fertility education seminar, open to the public, on Thursday, April 28th at 6:30pm.
+    
+    This seminar is free to all who sign up and will be held at our Woburn, MA center.
+    
+    Those interested are encouraged to bring their partners to the event.
+    Topics covered include:
+    
+    - IVF, IUI, tubal reversal and other fertility treatment options
+    - Payment/Insurance coverage
+    - Questions from the attendees
+    
+    <div class="clear"></div>
+    
+    (blockquote: Nisi pretium pretium curae suscipit fermentum ac convallis convallis mi torquent facilisis a neque venenatis. Amet lorem conubia purus fusce imperdiet netus vel suspendisse. author: John Jones from Company Name)
+  extrapadding: "0"
+  classes: inner-page-block,blog-inner-page

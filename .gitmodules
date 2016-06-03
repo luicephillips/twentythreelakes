@@ -10,3 +10,9 @@
 [submodule "site/fields/tabs"]
 	path = site/fields/tabs
 	url = https://github.com/afbora/Kirby-Tabs-Field
+[submodule "site/fields/selector"]
+	path = site/fields/selector
+	url = https://github.com/storypioneers/kirby-selector
+[submodule "site/plugins/thumbext"]
+	path = site/plugins/thumbext
+	url = https://github.com/jbeyerstedt/kirby-plugin-thumbExt

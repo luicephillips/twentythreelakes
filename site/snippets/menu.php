@@ -1,7 +1,7 @@
 <div class="header-part">
     <div class="logo-block">
         <a href="<?= url() ?>" title="Family Inceptions International">
-            <img src="assets/images/svg-img/logo.svg" width="284" height="51" alt="Family Inceptions International" title="Family Inceptions International" />
+            <img src="<?= url('assets/images/svg-img/logo.svg') ?>" width="284" height="51" alt="Family Inceptions International" title="Family Inceptions International" />
         </a>
     </div>
     
@@ -32,7 +32,7 @@
                                 <a href="#" title="Affordable Options - Fertility Financing">Affordable Options - Fertility Financing</a>
                             </li>
                             <li>
-                                <a href="#" title="Register for access"><span><img src="assets/images/icon/polygon-icon-menu.svg" width="5" height="7" alt="" title="" /></span>Register for access</a>
+                                <a href="#" title="Register for access"><span><img src="<?= url('assets/images/icon/polygon-icon-menu.svg') ?>" width="5" height="7" alt="" title="" /></span>Register for access</a>
                             </li>
                         </ul>
                     </li>
@@ -94,8 +94,8 @@
                 <li><a href="#" title="SURRONIQUE™ Wellness Program">SURRONIQUE™ Wellness Program</a></li>
                 <li><a href="#" title="FAQs">FAQs</a></li>
                 <li><a href="#" title="Referral Program">Referral Program</a></li>
-                <li><a href="#" title="Online Application"><span><img src="assets/images/icon/polygon-icon-menu.svg" width="5" height="7" alt="" title="" /></span>Online Application</a></li>
-                <li><a href="#" title="Access Your Profile"><span><img src="assets/images/icon/user-icon.svg" width="8" height="10" alt="" title="" /></span>Access Your Profile</a></li>
+                <li><a href="#" title="Online Application"><span><img src="<?= url('assets/images/icon/polygon-icon-menu.svg') ?>" width="5" height="7" alt="" title="" /></span>Online Application</a></li>
+                <li><a href="#" title="Access Your Profile"><span><img src="<?= url('assets/images/icon/user-icon.svg') ?>" width="8" height="10" alt="" title="" /></span>Access Your Profile</a></li>
               </ul>
             </li>
             <li class="dropdown"><a href="#" title="Donors">Donors</a></li>
@@ -103,10 +103,10 @@
         </ul>
     </div>
     <div class="get-started-btn">
-        <a href="#" title="GET STARTED"><span><img src="assets/images/icon/down-started-arrow.svg" width="24" height="12" alt="" title="" /></span>GET STARTED</a>
+        <a href="#" title="GET STARTED"><span><img src="<?= url('assets/images/icon/down-started-arrow.svg') ?>" width="24" height="12" alt="" title="" /></span>GET STARTED</a>
     </div>
     <div class="get-load">
-        <a href="#" title="GET STARTED"><span><img src="assets/images/icon/down-started-arrow.svg" width="24" height="12" alt="" title="" /></span></a>
+        <a href="#" title="GET STARTED"><span><img src="<?= url('assets/images/icon/down-started-arrow.svg') ?>" width="24" height="12" alt="" title="" /></span></a>
     </div>
     <div class="back-top-btn">
         <a href="#" title="GET STARTED"></a>

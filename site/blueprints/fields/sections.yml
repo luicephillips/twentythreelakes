@@ -5,17 +5,33 @@ fields:
     label: Type
     type: select
     options:
+      hero: Hero
       top: Top text section
       wide: Wide text section
       cta: Call-to-action      
     width: 1/2
-  id:
+  section_id:
     label: ID
     type: text
     width: 1/2
+  header:
+    label: Header
+    type: text
   text: maintext
+  extraPadding:
+    label: Extra padding
+    type: checkbox
+    text: Add extra padding to the section
+  noContainerBlock:
+    label: No container block
+    type: checkbox
+    text: Don't include the container block wrapping div
   classes:
     label: Classes
     type: tags
     index: all
+entry: >
+  Type: {{type}}<br />
+  Header: {{header}}<br />
+  Classes: {{classes}}
 modalsize: large

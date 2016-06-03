@@ -6,6 +6,7 @@ fields:
   title: title
   menu_title: menu_title
   sections: sections
+  accordion: accordion
   tabSEO: tabSEO
   title_tag: title_tag
   description: description
