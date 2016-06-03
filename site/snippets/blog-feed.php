@@ -6,7 +6,7 @@ foreach($posts as $post):?>
 <div class="column-4">
 	<div class="blog-block">
 		<figure>
-			<?//= $post->featuredImage(['alt'=>$post->title(), 'title'=>$post->title()]) ?>
+			<?= $post->featuredImage(['width'=>410, 'height'=>260, 'alt'=>$post->title(), 'title'=>$post->title()]) ?>
 		</figure>
 		<div class="blog-home-content">
 			<?= brick('h4', $post->title()) ?>

@@ -1,3 +1,6 @@
+<? if(redirectPage('about', c::get('iv-ip', false)))
+    header::redirect(url('about'));
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -28,3 +28,18 @@ function tableParse($content, $header=false) {
   return $tableContent;
 
 }
+
+function redirectPage($uri, $ip) {
+
+  if(!$ip)
+    return false;
+
+  if(page()->is(page($uri)))
+    return false;
+
+  if(server::get('REMOTE_ADDR')!=$ip)
+    return true;
+
+  return false;
+
+}

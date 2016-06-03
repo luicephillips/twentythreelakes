@@ -165,9 +165,9 @@ class PostPage extends BlogPage {
 
 		$img = $this->featured()->toFile();
 
-		$thumb = ThumbExt($img, $options)->tag();
+		$thumb = ThumbExt($img, $options);
 
-		return $thumb;
+		return $thumb->tag();
 
 	}
 

@@ -134,6 +134,6 @@
 
     <?= js($js) ?>
     <!--common jquery end-->    
-    <!--scripts ends here--> 
+    <!--scripts ends here-->
 </body>
 </html>
